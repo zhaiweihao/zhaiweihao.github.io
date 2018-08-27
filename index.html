@@ -153,80 +153,41 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-使用hexo和githubPage搭建博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-centos配置java环境的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/27/使用hexo和githubPage搭建博客/">使用hexo和githubPage搭建博客</a>
+      <a class="article-title" href="/2018/08/27/centos配置java环境的问题/">centos配置java环境的问题</a>
     </h1>
   
 
         
-        <a href="/2018/08/27/使用hexo和githubPage搭建博客/" class="archive-article-date">
-  	<time datetime="2018-08-27T05:16:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
+        <a href="/2018/08/27/centos配置java环境的问题/" class="archive-article-date">
+  	<time datetime="2018-08-27T05:45:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h5><ul>
-<li>hexo基于node.js，使用npm 安装</li>
-<li><code>npm install -g hexo</code>安装为全局</li>
-<li>跳转到指定的目录，<code>hexo init blog</code>创建博客的基础框架，这里的博客名为<code>blog</code></li>
-<li><code>cd blog</code></li>
-<li><code>npm install</code></li>
-<li><code>hexo g</code>生成部署文件</li>
-<li><code>hexo s</code>启动本地，查看<code>localhost:4000</code></li>
+        <h5 id="打开ssh服务"><a href="#打开ssh服务" class="headerlink" title="打开ssh服务"></a>打开ssh服务</h5><ul>
+<li>更改<code>/etc/ssh/sshd_config</code>(修改配置文件需要切换到root用户)，打开端口号等选项，打开<code>PermitRootLogin</code>选项，保存文件退出</li>
+<li>开启sshd服务<code>sudo service sshd start</code></li>
+<li><code>ps -e|grep sshd</code>可查看是否开启sshd服务</li>
 </ul>
-<h5 id="使用github的github-page"><a href="#使用github的github-page" class="headerlink" title="使用github的github page"></a>使用github的github page</h5><ul>
-<li>创建repository，名字为<code>username.github.io</code>，<code>username</code>为git账户的用户名</li>
-<li><code>git clone url</code>将新建的仓储下到本地</li>
-<li><code>cd username.github.io</code></li>
-<li><code>echo &quot;hello world&quot; &gt; index.html</code>新建index.html文件</li>
-<li><code>git add --all</code></li>
-<li><code>git commit -m &quot;initial commit&quot;</code></li>
-<li><code>git push -u origin master</code></li>
-<li>打开<code>https://username.github.io</code>可以查看博客</li>
-<li>在Setting中可以选择github page的主题</li>
-</ul>
-<h5 id="整合hexo和github-page"><a href="#整合hexo和github-page" class="headerlink" title="整合hexo和github page"></a>整合hexo和github page</h5><ul>
-<li>我们可以将hexo整合到githubpage中</li>
-<li><p>为了上传文件，我们首先需要在github中添加<code>ssh key</code></p>
-<ul>
-<li><code>ls -al ~/.ssh</code>查看当前是否有<code>ssh key</code></li>
-<li><p>在当前的<code>git bash</code>中设置<code>name</code>和<code>email</code>，<code>username</code>和<code>email</code>是git账户的<code>username</code>和<code>email</code></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;username&quot;</span><br><span class="line">git config --global user.email &quot;email&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h5><ul>
+<li><p>可根据java官网提供的jdk.tar.gz文件的路径使用<code>wget</code>安装，类似下面语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-cookie --header &quot;Cookie: s_cc=true; oraclelicense=accept-securebackup-cookie; s_nr=1407131063040; gpw_e24=http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html; s_sq=%5B%5BB%5D%5D&quot; http://download.oracle.com/otn-pub/java/jdk/10.0.1+10/fb4372174a714e6b8c52526dc134031e/jdk-10.0.1_linux-x64_bin.tar.gz</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>输入<code>ssh-keygen -t rsa -C &quot;email&quot;</code> <code>email</code>为上面的email</p>
+<li><p>centos中有自带的jdk为低版本，暂时没删除，不知道是否有问题</p>
 </li>
-<li>获取key <code>cat ~/.ssh/id_rsa.pub</code></li>
-<li>拷贝key到github</li>
 </ul>
-</li>
-<li><p>修改blog根目录的<code>_config.yml</code>的<code>deploy</code>节点，添加以下内容</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    type: git</span><br><span class="line">    repo: ssh://git@github.com/zhaiweihao/zhaiweihao.github.io</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装需要的组件<code>npm install hexo-deployer-git --save</code></p>
-</li>
-<li><code>hexo deploy</code>发布到github</li>
-<li>查看<code>username.github.io</code>可以发现已经变为hexo格式的博客</li>
-</ul>
-<h5 id="使用其他主题"><a href="#使用其他主题" class="headerlink" title="使用其他主题"></a>使用其他主题</h5><ul>
-<li>github下载主题，我用的是<code>hexo-theme-yilia</code></li>
-<li><code>git clone</code>下载，将文件夹放到blog目录的theme文件夹下</li>
-<li>修改blog目录下的<code>_config.yal</code>文件的theme节点，改为<code>yilia</code></li>
-<li><code>hexo g</code>重新生成发布文件</li>
-<li><code>hexo deploy</code>发布到github</li>
-<li>刷新博客，查看样式</li>
-</ul>
-<h5 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h5><ul>
-<li>hexo的一些基本命令</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2018/08/27/centos配置java环境的问题/#more">more >></a>
+        
       
 
       
@@ -238,7 +199,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/27/使用hexo和githubPage搭建博客/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/08/27/centos配置java环境的问题/">展开全文 >></a>
         </p>
       
 
@@ -268,41 +229,47 @@
 
 
   
-    <article id="post-生气的理论研究" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-SpringDemo项目中的技术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/24/生气的理论研究/">生气的理论研究</a>
+      <a class="article-title" href="/2018/08/27/SpringDemo项目中的技术/">SpringDemo项目中的技术</a>
     </h1>
   
 
         
-        <a href="/2018/08/24/生气的理论研究/" class="archive-article-date">
-  	<time datetime="2018-08-24T09:19:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
+        <a href="/2018/08/27/SpringDemo项目中的技术/" class="archive-article-date">
+  	<time datetime="2018-08-27T05:42:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="OK"><a href="#OK" class="headerlink" title="OK"></a>OK</h5><ul>
-<li>what are you saying</li>
-<li>ok more</li>
-<li>you win</li>
-<li>but</li>
-<li>what</li>
-<li>i</li>
-<li>was</li>
-<li>doing</li>
-<li>hello</li>
-<li>right</li>
-<li>this</li>
-<li>over</li>
+        <h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><pre><code>- 整理一下在SpringDemo中用到的组件，还有碰到的问题
+</code></pre><h5 id="SpringMvc"><a href="#SpringMvc" class="headerlink" title="SpringMvc"></a>SpringMvc</h5><pre><code>- mvc的控制在servlet.xml文件中
+   1. 将`servlet.xml`添加到`web.xml`的`servlet`的`dispatch`中，相当于转发请求
+   2. `interceptor`的拦截配置 
+   3. jsp文件所在位置
+   4. 去掉静态文件的访问限制 `mvc:resource`配置
+   5. 上传文件时添加`multipartResolver` bean
+   6. 跨域的配置`cors`
+</code></pre><ul>
+<li>spring配置在<code>applicationContext.xml</code>文件中<ol>
+<li>将该配置添加到<code>web.xml</code>的<code>context-param</code>中 </li>
+<li>添加<code>properties</code>后要记得加到<code>propertyConfigurer</code>中</li>
+<li>要注入的<code>Component,Controller,Service,Dao</code>所在的文件夹要加到<code>component-scan</code>中</li>
+<li>controller中接收url,parameter和body中的参数，produce标识的是返回的类型</li>
+<li>上传文件时，在request中接收file时根据getFile(name)，这个name要和form中fileinput的名称相同，若是不同会接收不着</li>
+</ol>
+</li>
 </ul>
-
+        
+          <a class="article-more-a" href="/2018/08/27/SpringDemo项目中的技术/#more">more >></a>
+        
       
 
       
@@ -314,7 +281,80 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/24/生气的理论研究/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/08/27/SpringDemo项目中的技术/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-使用hexo和githubPage搭建博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/27/使用hexo和githubPage搭建博客/">使用hexo和githubPage搭建博客</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/27/使用hexo和githubPage搭建博客/" class="archive-article-date">
+  	<time datetime="2018-08-27T05:16:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h5><ul>
+<li>hexo基于node.js，使用npm 安装</li>
+<li><code>npm install -g hexo</code>安装为全局</li>
+<li>跳转到指定的目录，<code>hexo init blog</code>创建博客的基础框架，这里的博客名为<code>blog</code></li>
+<li><code>cd blog</code></li>
+<li><code>npm install</code></li>
+<li><code>hexo g</code>生成部署文件</li>
+<li><code>hexo s</code>启动本地，查看<code>localhost:4000</code></li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/08/27/使用hexo和githubPage搭建博客/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/27/使用hexo和githubPage搭建博客/">展开全文 >></a>
         </p>
       
 
@@ -365,15 +405,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
+        
+          <a class="article-more-a" href="/2018/08/14/hello-world/#more">more >></a>
+        
       
 
       

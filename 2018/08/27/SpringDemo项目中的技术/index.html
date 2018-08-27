@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | ace的个人小站</title>
+  <title>SpringDemo项目中的技术 | ace的个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="ace">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ace的个人小站">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="前言- 整理一下在SpringDemo中用到的组件，还有碰到的问题 SpringMvc- mvc的控制在servlet.xml文件中    1. 将`servlet.xml`添加到`web.xml`的`servlet`的`dispatch`中，相当于转发请求    2. `interceptor`的拦截配置     3. jsp文件所在位置    4. 去掉静态文件的访问限制 `mvc:resou">
+<meta name="keywords" content="ace">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringDemo项目中的技术">
+<meta property="og:url" content="http://yoursite.com/2018/08/27/SpringDemo项目中的技术/index.html">
 <meta property="og:site_name" content="ace的个人小站">
+<meta property="og:description" content="前言- 整理一下在SpringDemo中用到的组件，还有碰到的问题 SpringMvc- mvc的控制在servlet.xml文件中    1. 将`servlet.xml`添加到`web.xml`的`servlet`的`dispatch`中，相当于转发请求    2. `interceptor`的拦截配置     3. jsp文件所在位置    4. 去掉静态文件的访问限制 `mvc:resou">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-27T06:23:33.982Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ace的个人小站">
+<meta name="twitter:title" content="SpringDemo项目中的技术">
+<meta name="twitter:description" content="前言- 整理一下在SpringDemo中用到的组件，还有碰到的问题 SpringMvc- mvc的控制在servlet.xml文件中    1. 将`servlet.xml`添加到`web.xml`的`servlet`的`dispatch`中，相当于转发请求    2. `interceptor`的拦截配置     3. jsp文件所在位置    4. 去掉静态文件的访问限制 `mvc:resou">
   
     <link rel="alternative" href="/atom.xml" title="ace的个人小站" type="application/atom+xml">
   
@@ -151,130 +155,205 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-SpringDemo项目中的技术" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/centos配置java环境的问题/" class="archive-article-date">
-  	<time datetime="2018-08-27T05:45:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/centos配置java环境的问题/">centos配置java环境的问题</a>
+    <h1 class="article-title" itemprop="name">
+      SpringDemo项目中的技术
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/SpringDemo项目中的技术/" class="archive-article-date">
+        
+        <a href="/2018/08/27/SpringDemo项目中的技术/" class="archive-article-date">
   	<time datetime="2018-08-27T05:42:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/SpringDemo项目中的技术/">SpringDemo项目中的技术</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><pre><code>- 整理一下在SpringDemo中用到的组件，还有碰到的问题
+</code></pre><h5 id="SpringMvc"><a href="#SpringMvc" class="headerlink" title="SpringMvc"></a>SpringMvc</h5><pre><code>- mvc的控制在servlet.xml文件中
+   1. 将`servlet.xml`添加到`web.xml`的`servlet`的`dispatch`中，相当于转发请求
+   2. `interceptor`的拦截配置 
+   3. jsp文件所在位置
+   4. 去掉静态文件的访问限制 `mvc:resource`配置
+   5. 上传文件时添加`multipartResolver` bean
+   6. 跨域的配置`cors`
+</code></pre><ul>
+<li>spring配置在<code>applicationContext.xml</code>文件中<ol>
+<li>将该配置添加到<code>web.xml</code>的<code>context-param</code>中 </li>
+<li>添加<code>properties</code>后要记得加到<code>propertyConfigurer</code>中</li>
+<li>要注入的<code>Component,Controller,Service,Dao</code>所在的文件夹要加到<code>component-scan</code>中</li>
+<li>controller中接收url,parameter和body中的参数，produce标识的是返回的类型</li>
+<li>上传文件时，在request中接收file时根据getFile(name)，这个name要和form中fileinput的名称相同，若是不同会接收不着</li>
+</ol>
+</li>
+</ul>
+<a id="more"></a>
+<h5 id="Mybatis-Spring"><a href="#Mybatis-Spring" class="headerlink" title="Mybatis-Spring"></a>Mybatis-Spring</h5><ul>
+<li>扫描dao和mapper.xml文件夹</li>
+<li>MapperScannerConfigurer中配置sqlSessionFactoryName不能配置sqlSessionFactory，否则提示实例化可能出错。还有多数据源 的考虑</li>
+<li>mapper.xml文件中的jdbcType没有int有Integer</li>
+<li>可以直接使用select注解，或者使用mapper.xml文件</li>
+</ul>
+<h5 id="durid"><a href="#durid" class="headerlink" title="durid"></a>durid</h5><pre><code>- 阿里提供的数据库连接池（号称world best）
+</code></pre><h5 id="aspect"><a href="#aspect" class="headerlink" title="aspect"></a>aspect</h5><pre><code>- 根据`@interface`来注解service，动态切换数据源
+</code></pre><h5 id="xmemcached"><a href="#xmemcached" class="headerlink" title="xmemcached"></a>xmemcached</h5><pre><code>- 操作的类必须是继承`Serializable`接口，否则报错
+- 必须要引用slf4j，否则报错
+- 要添加Component标记，否则不能注入
+- 服务器的memcached必须启动，否则项目不能启动
+    - 启动命令`memcached -d -m 1024 -u root -l ip地址 -p 端口号 -c 1024 -P /tmp/memcached.pid`
+</code></pre><h5 id="log4j"><a href="#log4j" class="headerlink" title="log4j"></a>log4j</h5><h5 id="jackson"><a href="#jackson" class="headerlink" title="jackson"></a>jackson</h5><pre><code>- 一般序列化使用的方法
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ObjectMapper mapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line">String json = mapper.writeValueAsString(responseMap);</span><br></pre></td></tr></table></figure>
+</code></pre><h5 id="activemq"><a href="#activemq" class="headerlink" title="activemq"></a>activemq</h5><ul>
+<li><p>启动服务器的activemq</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./activemq start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置文件在application.xml中</p>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/27/SpringDemo项目中的技术/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/使用hexo和githubPage搭建博客/" class="archive-article-date">
-  	<time datetime="2018-08-27T05:16:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/08/27/centos配置java环境的问题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          centos配置java环境的问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/27/使用hexo和githubPage搭建博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用hexo和githubPage搭建博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/使用hexo和githubPage搭建博客/">使用hexo和githubPage搭建博客</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/14/hello-world/" class="archive-article-date">
-  	<time datetime="2018-08-14T06:09:50.829Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/14/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -297,8 +376,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

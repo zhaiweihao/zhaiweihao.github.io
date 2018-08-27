@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | ace的个人小站</title>
+  <title>centos配置java环境的问题 | ace的个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="ace">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ace的个人小站">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="打开ssh服务 更改/etc/ssh/sshd_config(修改配置文件需要切换到root用户)，打开端口号等选项，打开PermitRootLogin选项，保存文件退出 开启sshd服务sudo service sshd start ps -e|grep sshd可查看是否开启sshd服务  安装jdk 可根据java官网提供的jdk.tar.gz文件的路径使用wget安装，类似下面语句 1wg">
+<meta name="keywords" content="ace">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos配置java环境的问题">
+<meta property="og:url" content="http://yoursite.com/2018/08/27/centos配置java环境的问题/index.html">
 <meta property="og:site_name" content="ace的个人小站">
+<meta property="og:description" content="打开ssh服务 更改/etc/ssh/sshd_config(修改配置文件需要切换到root用户)，打开端口号等选项，打开PermitRootLogin选项，保存文件退出 开启sshd服务sudo service sshd start ps -e|grep sshd可查看是否开启sshd服务  安装jdk 可根据java官网提供的jdk.tar.gz文件的路径使用wget安装，类似下面语句 1wg">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-27T06:25:12.177Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ace的个人小站">
+<meta name="twitter:title" content="centos配置java环境的问题">
+<meta name="twitter:description" content="打开ssh服务 更改/etc/ssh/sshd_config(修改配置文件需要切换到root用户)，打开端口号等选项，打开PermitRootLogin选项，保存文件退出 开启sshd服务sudo service sshd start ps -e|grep sshd可查看是否开启sshd服务  安装jdk 可根据java官网提供的jdk.tar.gz文件的路径使用wget安装，类似下面语句 1wg">
   
     <link rel="alternative" href="/atom.xml" title="ace的个人小站" type="application/atom+xml">
   
@@ -151,130 +155,206 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-centos配置java环境的问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      centos配置java环境的问题
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/centos配置java环境的问题/" class="archive-article-date">
+
+        
+        <a href="/2018/08/27/centos配置java环境的问题/" class="archive-article-date">
   	<time datetime="2018-08-27T05:45:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/centos配置java环境的问题/">centos配置java环境的问题</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="打开ssh服务"><a href="#打开ssh服务" class="headerlink" title="打开ssh服务"></a>打开ssh服务</h5><ul>
+<li>更改<code>/etc/ssh/sshd_config</code>(修改配置文件需要切换到root用户)，打开端口号等选项，打开<code>PermitRootLogin</code>选项，保存文件退出</li>
+<li>开启sshd服务<code>sudo service sshd start</code></li>
+<li><code>ps -e|grep sshd</code>可查看是否开启sshd服务</li>
+</ul>
+<h5 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h5><ul>
+<li><p>可根据java官网提供的jdk.tar.gz文件的路径使用<code>wget</code>安装，类似下面语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-cookie --header &quot;Cookie: s_cc=true; oraclelicense=accept-securebackup-cookie; s_nr=1407131063040; gpw_e24=http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html; s_sq=%5B%5BB%5D%5D&quot; http://download.oracle.com/otn-pub/java/jdk/10.0.1+10/fb4372174a714e6b8c52526dc134031e/jdk-10.0.1_linux-x64_bin.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>centos中有自带的jdk为低版本，暂时没删除，不知道是否有问题</p>
+</li>
+</ul>
+<a id="more"></a>
+<h5 id="安装tomcat"><a href="#安装tomcat" class="headerlink" title="安装tomcat"></a>安装tomcat</h5><ul>
+<li><p>使用wget命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c http://mirrors.hust.edu.cn/apache/tomcat/tomcat-9/v9.0.10/bin/apache-tomcat-9.0.10.tar.gz</span><br></pre></td></tr></table></figure>
+<p>-解压进入bin目录，开启命令<code>./startup.sh</code><br>-若出现centos虚拟机内能访问localhost:8080，但是本地计算机不能访问，可能是开启了防火墙，可以开放端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#查看开放的端口</span><br><span class="line">firewall-cmd --list-ports</span><br><span class="line">#开放8080端口，使其能够tcp访问</span><br><span class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</span><br><span class="line">#重启防火墙</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h5><ul>
+<li>安装gcc <code>yum install gcc-c++</code></li>
+<li>安装pcre <code>yum install -y pcre pcre-devel</code></li>
+<li>安装zlib <code>yum install -y zlib zlib-devel</code></li>
+<li>安装openssl <code>yum install -y openssl openssl-devel</code></li>
+<li><p>下载nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c https://nginx.org/download/nginx-1.12.2.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nginx-1.12.2.tar.gz</span><br><span class="line">cd nginx-1.12.2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">whereis nginx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开启关闭控制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/nginx/sbin/</span><br><span class="line">#开启</span><br><span class="line">./nginx</span><br><span class="line">#直接停止</span><br><span class="line">./nginx -s stop</span><br><span class="line">#等待nginx处理完成后停止</span><br><span class="line">./nginx -s quit</span><br><span class="line">#重新加载配置文件</span><br><span class="line">./nginx -s reload</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="other"><a href="#other" class="headerlink" title="other"></a>other</h5><ul>
+<li><p>windows安装tomcat</p>
+<ul>
+<li>会用到<code>JRE_HOME</code>和<code>JAVA_HOME</code>，<code>JAVA_HOME</code>应该是jdk的路径。</li>
+<li>进入bin目录，点击startup.bat可以启动，在cmd中输入<code>service.bat install</code>可以安装为windows服务</li>
+</ul>
+</li>
+<li><p>me创建dynamic-web-project方法</p>
+<ul>
+<li>创建项目时勾选<code>Show all wizard</code>，可以看到Dynamic-web-project选项</li>
+</ul>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/27/centos配置java环境的问题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/SpringDemo项目中的技术/" class="archive-article-date">
-  	<time datetime="2018-08-27T05:42:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/27/SpringDemo项目中的技术/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringDemo项目中的技术</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/SpringDemo项目中的技术/">SpringDemo项目中的技术</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/使用hexo和githubPage搭建博客/" class="archive-article-date">
-  	<time datetime="2018-08-27T05:16:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/使用hexo和githubPage搭建博客/">使用hexo和githubPage搭建博客</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/14/hello-world/" class="archive-article-date">
-  	<time datetime="2018-08-14T06:09:50.829Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/14/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -297,8 +377,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
