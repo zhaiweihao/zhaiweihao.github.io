@@ -168,7 +168,7 @@
 </ul>
 <h5 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h5><ul>
 <li><p>可根据java官网提供的jdk.tar.gz文件的路径使用<code>wget</code>安装，类似下面语句</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-cookie --header &quot;Cookie: s_cc=true; oraclelicense=accept-securebackup-cookie; s_nr=1407131063040; gpw_e24=http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html; s_sq=%5B%5BB%5D%5D&quot; http://download.oracle.com/otn-pub/java/jdk/10.0.1+10/fb4372174a714e6b8c52526dc134031e/jdk-10.0.1_linux-x64_bin.tar.gz</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-cookie --header &quot;Cookie: s_cc=true; oraclelicense=accept-securebackup-cookie; s_nr=1407131063040; gpw_e24=http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html; s_sq=%5B%5BB%5D%5D&quot; http://download.oracle.com/otn-pub/java/jdk/10.0.1+10/fb4372174a714e6b8c52526dc134031e/jdk-10.0.1_linux-x64_bin.tar.gz</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>centos中有自带的jdk为低版本，暂时没删除，不知道是否有问题</p>
 </li>
@@ -238,14 +238,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><pre><code>- 整理一下在SpringDemo中用到的组件，还有碰到的问题
-</code></pre><h5 id="SpringMvc"><a href="#SpringMvc" class="headerlink" title="SpringMvc"></a>SpringMvc</h5><pre><code>- mvc的控制在servlet.xml文件中
-   1. 将`servlet.xml`添加到`web.xml`的`servlet`的`dispatch`中，相当于转发请求
-   2. `interceptor`的拦截配置 
-   3. jsp文件所在位置
-   4. 去掉静态文件的访问限制 `mvc:resource`配置
-   5. 上传文件时添加`multipartResolver` bean
-   6. 跨域的配置`cors`
-</code></pre><ul>
+</code></pre><h5 id="SpringMvc"><a href="#SpringMvc" class="headerlink" title="SpringMvc"></a>SpringMvc</h5><ul>
+<li>mvc的控制在servlet.xml文件中<ol>
+<li>将<code>servlet.xml</code>添加到<code>web.xml</code>的<code>servlet</code>的<code>dispatch</code>中，相当于转发请求</li>
+<li><code>interceptor</code>的拦截配置 </li>
+<li>jsp文件所在位置</li>
+<li>去掉静态文件的访问限制 <code>mvc:resource</code>配置</li>
+<li>上传文件时添加<code>multipartResolver</code> bean</li>
+<li>跨域的配置<code>cors</code></li>
+</ol>
+</li>
 <li>spring配置在<code>applicationContext.xml</code>文件中<ol>
 <li>将该配置添加到<code>web.xml</code>的<code>context-param</code>中 </li>
 <li>添加<code>properties</code>后要记得加到<code>propertyConfigurer</code>中</li>

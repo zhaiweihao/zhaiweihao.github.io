@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>centos配置java环境的问题 | ace的个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="打开ssh服务 更改/etc/ssh/sshd_config(修改配置文件需要切换到root用户)，打开端口号等选项，打开PermitRootLogin选项，保存文件退出 开启sshd服务sudo service sshd start ps -e|grep sshd可查看是否开启sshd服务  安装jdk 可根据java官网提供的jdk.tar.gz文件的路径使用wget安装，类似下面语句 1wg">
+  <meta name="description" content="打开ssh服务 更改/etc/ssh/sshd_config(修改配置文件需要切换到root用户)，打开端口号等选项，打开PermitRootLogin选项，保存文件退出 开启sshd服务sudo service sshd start ps -e|grep sshd可查看是否开启sshd服务  安装jdk 可根据java官网提供的jdk.tar.gz文件的路径使用wget安装，类似下面语句   1">
 <meta name="keywords" content="ace">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos配置java环境的问题">
 <meta property="og:url" content="http://yoursite.com/2018/08/27/centos配置java环境的问题/index.html">
 <meta property="og:site_name" content="ace的个人小站">
-<meta property="og:description" content="打开ssh服务 更改/etc/ssh/sshd_config(修改配置文件需要切换到root用户)，打开端口号等选项，打开PermitRootLogin选项，保存文件退出 开启sshd服务sudo service sshd start ps -e|grep sshd可查看是否开启sshd服务  安装jdk 可根据java官网提供的jdk.tar.gz文件的路径使用wget安装，类似下面语句 1wg">
+<meta property="og:description" content="打开ssh服务 更改/etc/ssh/sshd_config(修改配置文件需要切换到root用户)，打开端口号等选项，打开PermitRootLogin选项，保存文件退出 开启sshd服务sudo service sshd start ps -e|grep sshd可查看是否开启sshd服务  安装jdk 可根据java官网提供的jdk.tar.gz文件的路径使用wget安装，类似下面语句   1">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-27T06:25:12.177Z">
+<meta property="og:updated_time" content="2018-08-27T06:46:52.428Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos配置java环境的问题">
-<meta name="twitter:description" content="打开ssh服务 更改/etc/ssh/sshd_config(修改配置文件需要切换到root用户)，打开端口号等选项，打开PermitRootLogin选项，保存文件退出 开启sshd服务sudo service sshd start ps -e|grep sshd可查看是否开启sshd服务  安装jdk 可根据java官网提供的jdk.tar.gz文件的路径使用wget安装，类似下面语句 1wg">
+<meta name="twitter:description" content="打开ssh服务 更改/etc/ssh/sshd_config(修改配置文件需要切换到root用户)，打开端口号等选项，打开PermitRootLogin选项，保存文件退出 开启sshd服务sudo service sshd start ps -e|grep sshd可查看是否开启sshd服务  安装jdk 可根据java官网提供的jdk.tar.gz文件的路径使用wget安装，类似下面语句   1">
   
     <link rel="alternative" href="/atom.xml" title="ace的个人小站" type="application/atom+xml">
   
@@ -170,7 +170,7 @@
 </ul>
 <h5 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h5><ul>
 <li><p>可根据java官网提供的jdk.tar.gz文件的路径使用<code>wget</code>安装，类似下面语句</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-cookie --header &quot;Cookie: s_cc=true; oraclelicense=accept-securebackup-cookie; s_nr=1407131063040; gpw_e24=http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html; s_sq=%5B%5BB%5D%5D&quot; http://download.oracle.com/otn-pub/java/jdk/10.0.1+10/fb4372174a714e6b8c52526dc134031e/jdk-10.0.1_linux-x64_bin.tar.gz</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-cookie --header &quot;Cookie: s_cc=true; oraclelicense=accept-securebackup-cookie; s_nr=1407131063040; gpw_e24=http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html; s_sq=%5B%5BB%5D%5D&quot; http://download.oracle.com/otn-pub/java/jdk/10.0.1+10/fb4372174a714e6b8c52526dc134031e/jdk-10.0.1_linux-x64_bin.tar.gz</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>centos中有自带的jdk为低版本，暂时没删除，不知道是否有问题</p>
 </li>
@@ -178,9 +178,11 @@
 <a id="more"></a>
 <h5 id="安装tomcat"><a href="#安装tomcat" class="headerlink" title="安装tomcat"></a>安装tomcat</h5><ul>
 <li><p>使用wget命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c http://mirrors.hust.edu.cn/apache/tomcat/tomcat-9/v9.0.10/bin/apache-tomcat-9.0.10.tar.gz</span><br></pre></td></tr></table></figure>
-<p>-解压进入bin目录，开启命令<code>./startup.sh</code><br>-若出现centos虚拟机内能访问localhost:8080，但是本地计算机不能访问，可能是开启了防火墙，可以开放端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#查看开放的端口</span><br><span class="line">firewall-cmd --list-ports</span><br><span class="line">#开放8080端口，使其能够tcp访问</span><br><span class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</span><br><span class="line">#重启防火墙</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c http://mirrors.hust.edu.cn/apache/tomcat/tomcat-9/v9.0.10/bin/apache-tomcat-9.0.10.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压进入bin目录，开启命令<code>./startup.sh</code></p>
+</li>
+<li>若出现centos虚拟机内能访问localhost:8080，但是本地计算机不能访问，可能是开启了防火墙，可以开放端口  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#查看开放的端口</span><br><span class="line">firewall-cmd --list-ports</span><br><span class="line">#开放8080端口，使其能够tcp访问</span><br><span class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</span><br><span class="line">#重启防火墙</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h5 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h5><ul>
@@ -189,16 +191,16 @@
 <li>安装zlib <code>yum install -y zlib zlib-devel</code></li>
 <li>安装openssl <code>yum install -y openssl openssl-devel</code></li>
 <li><p>下载nginx</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c https://nginx.org/download/nginx-1.12.2.tar.gz</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c https://nginx.org/download/nginx-1.12.2.tar.gz</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>解压文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nginx-1.12.2.tar.gz</span><br><span class="line">cd nginx-1.12.2</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nginx-1.12.2.tar.gz</span><br><span class="line">cd nginx-1.12.2</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>编译安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">whereis nginx</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">whereis nginx</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>开启关闭控制</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/nginx/sbin/</span><br><span class="line">#开启</span><br><span class="line">./nginx</span><br><span class="line">#直接停止</span><br><span class="line">./nginx -s stop</span><br><span class="line">#等待nginx处理完成后停止</span><br><span class="line">./nginx -s quit</span><br><span class="line">#重新加载配置文件</span><br><span class="line">./nginx -s reload</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/nginx/sbin/</span><br><span class="line">#开启</span><br><span class="line">./nginx</span><br><span class="line">#直接停止</span><br><span class="line">./nginx -s stop</span><br><span class="line">#等待nginx处理完成后停止</span><br><span class="line">./nginx -s quit</span><br><span class="line">#重新加载配置文件</span><br><span class="line">./nginx -s reload</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h5 id="other"><a href="#other" class="headerlink" title="other"></a>other</h5><ul>
