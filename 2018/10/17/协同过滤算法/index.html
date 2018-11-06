@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>推荐算法-协同过滤算法 | ace的个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="协同过滤算法(电影推荐，音乐推荐)区别于基于内容的推荐，基于内容的推荐需要为内容添加标签等元数据特征。协同过滤是根据用户对信息的偏爱发现信息的相关性，基于相关性进行推荐。 假设现在有1，2，3 三个用户，4个电影 A,B,C,D。默认每个用户看过电影后会对其打分，打分情况如下所示(空即为没有看过) table {    width: 200px;}1用户    电影 评分     A 3   B">
+  <meta name="description" content="协同过滤算法(电影推荐，音乐推荐)区别于基于内容的推荐，基于内容的推荐需要为内容添加标签等元数据特征。协同过滤是根据用户对信息的偏爱发现信息的相关性，基于相关性进行推荐。 假设现在有1，2，3 三个用户，4个电影 A,B,C,D。默认每个用户看过电影后会对其打分，打分情况如下所示(空即为没有看过) 1用户    电影 评分     A 3   B 2   C    D">
 <meta name="keywords" content="ace">
 <meta property="og:type" content="article">
 <meta property="og:title" content="推荐算法-协同过滤算法">
 <meta property="og:url" content="http://yoursite.com/2018/10/17/协同过滤算法/index.html">
 <meta property="og:site_name" content="ace的个人小站">
-<meta property="og:description" content="协同过滤算法(电影推荐，音乐推荐)区别于基于内容的推荐，基于内容的推荐需要为内容添加标签等元数据特征。协同过滤是根据用户对信息的偏爱发现信息的相关性，基于相关性进行推荐。 假设现在有1，2，3 三个用户，4个电影 A,B,C,D。默认每个用户看过电影后会对其打分，打分情况如下所示(空即为没有看过) table {    width: 200px;}1用户    电影 评分     A 3   B">
+<meta property="og:description" content="协同过滤算法(电影推荐，音乐推荐)区别于基于内容的推荐，基于内容的推荐需要为内容添加标签等元数据特征。协同过滤是根据用户对信息的偏爱发现信息的相关性，基于相关性进行推荐。 假设现在有1，2，3 三个用户，4个电影 A,B,C,D。默认每个用户看过电影后会对其打分，打分情况如下所示(空即为没有看过) 1用户    电影 评分     A 3   B 2   C    D">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-06T06:43:29.912Z">
+<meta property="og:updated_time" content="2018-11-06T09:23:27.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="推荐算法-协同过滤算法">
-<meta name="twitter:description" content="协同过滤算法(电影推荐，音乐推荐)区别于基于内容的推荐，基于内容的推荐需要为内容添加标签等元数据特征。协同过滤是根据用户对信息的偏爱发现信息的相关性，基于相关性进行推荐。 假设现在有1，2，3 三个用户，4个电影 A,B,C,D。默认每个用户看过电影后会对其打分，打分情况如下所示(空即为没有看过) table {    width: 200px;}1用户    电影 评分     A 3   B">
+<meta name="twitter:description" content="协同过滤算法(电影推荐，音乐推荐)区别于基于内容的推荐，基于内容的推荐需要为内容添加标签等元数据特征。协同过滤是根据用户对信息的偏爱发现信息的相关性，基于相关性进行推荐。 假设现在有1，2，3 三个用户，4个电影 A,B,C,D。默认每个用户看过电影后会对其打分，打分情况如下所示(空即为没有看过) 1用户    电影 评分     A 3   B 2   C    D">
   
     <link rel="alternative" href="/atom.xml" title="ace的个人小站" type="application/atom+xml">
   
@@ -165,7 +165,7 @@
       
         <h4 id="协同过滤算法-电影推荐，音乐推荐"><a href="#协同过滤算法-电影推荐，音乐推荐" class="headerlink" title="协同过滤算法(电影推荐，音乐推荐)"></a>协同过滤算法(电影推荐，音乐推荐)</h4><p>区别于基于内容的推荐，基于内容的推荐需要为内容添加标签等元数据特征。协同过滤是根据用户对信息的偏爱发现信息的相关性，基于相关性进行推荐。</p>
 <p>假设现在有1，2，3 三个用户，4个电影 A,B,C,D。默认每个用户看过电影后会对其打分，打分情况如下所示(空即为没有看过)</p>
-<p><style><br>table {<br>    width: 200px;<br>}<br></style><br>1用户</p>
+<p>1用户</p>
 <table>
 <thead>
 <tr>
@@ -196,26 +196,26 @@
 <table>
 <thead>
 <tr>
-<th>电影</th>
-<th>评分 </th>
+<th style="text-align:center">电影</th>
+<th style="text-align:center">评分</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>A</td>
-<td></td>
+<td style="text-align:center">A</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td>B</td>
-<td>2</td>
+<td style="text-align:center">B</td>
+<td style="text-align:center">2</td>
 </tr>
 <tr>
-<td>C</td>
-<td>3</td>
+<td style="text-align:center">C</td>
+<td style="text-align:center">3</td>
 </tr>
 <tr>
-<td>D</td>
-<td>4</td>
+<td style="text-align:center">D</td>
+<td style="text-align:center">4</td>
 </tr>
 </tbody>
 </table>
@@ -223,26 +223,26 @@
 <table>
 <thead>
 <tr>
-<th>电影</th>
-<th>评分 </th>
+<th style="text-align:center">电影</th>
+<th style="text-align:center">评分</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>A</td>
-<td>4</td>
+<td style="text-align:center">A</td>
+<td style="text-align:center">4</td>
 </tr>
 <tr>
-<td>B</td>
-<td></td>
+<td style="text-align:center">B</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td>C</td>
-<td>5</td>
+<td style="text-align:center">C</td>
+<td style="text-align:center">5</td>
 </tr>
 <tr>
-<td>D</td>
-<td>1</td>
+<td style="text-align:center">D</td>
+<td style="text-align:center">1</td>
 </tr>
 </tbody>
 </table>
