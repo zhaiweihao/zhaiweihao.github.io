@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>SpringDemo项目中的技术 | ace的个人小站</title>
+  <title>ace的个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言- 整理一下在SpringDemo中用到的组件，还有碰到的问题 SpringMvc mvc的控制在servlet.xml文件中 将servlet.xml添加到web.xml的servlet的dispatch中，相当于转发请求 interceptor的拦截配置  jsp文件所在位置 去掉静态文件的访问限制 mvc:resource配置 上传文件时添加multipartResolver bean">
+  <meta name="description" content="类中的成员变量(field)可以分为类变量和实例变量。有static修饰的为类变量，没有static修饰的为实例变量。 实例变量可以在初始化时赋值，也可以在初始化代码块中赋值，赋值顺序和代码的顺序相同123456789101112public class Sub&amp;#123;    &amp;#123;        number=1;    &amp;#125;    int number=2;&amp;#125;pub">
 <meta name="keywords" content="ace">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringDemo项目中的技术">
-<meta property="og:url" content="http://yoursite.com/2018/08/27/SpringDemo项目中的技术/index.html">
+<meta property="og:title" content="ace的个人小站">
+<meta property="og:url" content="http://yoursite.com/2019/03/03/成员变量和内存控制/index.html">
 <meta property="og:site_name" content="ace的个人小站">
-<meta property="og:description" content="前言- 整理一下在SpringDemo中用到的组件，还有碰到的问题 SpringMvc mvc的控制在servlet.xml文件中 将servlet.xml添加到web.xml的servlet的dispatch中，相当于转发请求 interceptor的拦截配置  jsp文件所在位置 去掉静态文件的访问限制 mvc:resource配置 上传文件时添加multipartResolver bean">
+<meta property="og:description" content="类中的成员变量(field)可以分为类变量和实例变量。有static修饰的为类变量，没有static修饰的为实例变量。 实例变量可以在初始化时赋值，也可以在初始化代码块中赋值，赋值顺序和代码的顺序相同123456789101112public class Sub&amp;#123;    &amp;#123;        number=1;    &amp;#125;    int number=2;&amp;#125;pub">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-27T06:45:11.361Z">
+<meta property="og:updated_time" content="2019-03-01T09:22:02.640Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringDemo项目中的技术">
-<meta name="twitter:description" content="前言- 整理一下在SpringDemo中用到的组件，还有碰到的问题 SpringMvc mvc的控制在servlet.xml文件中 将servlet.xml添加到web.xml的servlet的dispatch中，相当于转发请求 interceptor的拦截配置  jsp文件所在位置 去掉静态文件的访问限制 mvc:resource配置 上传文件时添加multipartResolver bean">
+<meta name="twitter:title" content="ace的个人小站">
+<meta name="twitter:description" content="类中的成员变量(field)可以分为类变量和实例变量。有static修饰的为类变量，没有static修饰的为实例变量。 实例变量可以在初始化时赋值，也可以在初始化代码块中赋值，赋值顺序和代码的顺序相同123456789101112public class Sub&amp;#123;    &amp;#123;        number=1;    &amp;#125;    int number=2;&amp;#125;pub">
   
     <link rel="alternative" href="/atom.xml" title="ace的个人小站" type="application/atom+xml">
   
@@ -143,79 +143,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SpringDemo项目中的技术" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-成员变量和内存控制" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      SpringDemo项目中的技术
-    </h1>
-  
-
-        
-        <a href="/2018/08/27/SpringDemo项目中的技术/" class="archive-article-date">
-  	<time datetime="2018-08-27T05:42:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><pre><code>- 整理一下在SpringDemo中用到的组件，还有碰到的问题
-</code></pre><h5 id="SpringMvc"><a href="#SpringMvc" class="headerlink" title="SpringMvc"></a>SpringMvc</h5><ul>
-<li>mvc的控制在servlet.xml文件中<ol>
-<li>将<code>servlet.xml</code>添加到<code>web.xml</code>的<code>servlet</code>的<code>dispatch</code>中，相当于转发请求</li>
-<li><code>interceptor</code>的拦截配置 </li>
-<li>jsp文件所在位置</li>
-<li>去掉静态文件的访问限制 <code>mvc:resource</code>配置</li>
-<li>上传文件时添加<code>multipartResolver</code> bean</li>
-<li>跨域的配置<code>cors</code></li>
-</ol>
-</li>
-<li>spring配置在<code>applicationContext.xml</code>文件中<ol>
-<li>将该配置添加到<code>web.xml</code>的<code>context-param</code>中 </li>
-<li>添加<code>properties</code>后要记得加到<code>propertyConfigurer</code>中</li>
-<li>要注入的<code>Component,Controller,Service,Dao</code>所在的文件夹要加到<code>component-scan</code>中</li>
-<li>controller中接收url,parameter和body中的参数，produce标识的是返回的类型</li>
-<li>上传文件时，在request中接收file时根据getFile(name)，这个name要和form中fileinput的名称相同，若是不同会接收不着</li>
-</ol>
-</li>
-</ul>
-<a id="more"></a>
-<h5 id="Mybatis-Spring"><a href="#Mybatis-Spring" class="headerlink" title="Mybatis-Spring"></a>Mybatis-Spring</h5><ul>
-<li>扫描dao和mapper.xml文件夹</li>
-<li>MapperScannerConfigurer中配置sqlSessionFactoryName不能配置sqlSessionFactory，否则提示实例化可能出错。还有多数据源 的考虑</li>
-<li>mapper.xml文件中的jdbcType没有int有Integer</li>
-<li>可以直接使用select注解，或者使用mapper.xml文件</li>
-</ul>
-<h5 id="durid"><a href="#durid" class="headerlink" title="durid"></a>durid</h5><ul>
-<li>阿里提供的数据库连接池（号称world best）</li>
-</ul>
-<h5 id="aspect"><a href="#aspect" class="headerlink" title="aspect"></a>aspect</h5><ul>
-<li>根据<code>@interface</code>来注解service，动态切换数据源</li>
-</ul>
-<h5 id="xmemcached"><a href="#xmemcached" class="headerlink" title="xmemcached"></a>xmemcached</h5><ul>
-<li>操作的类必须是继承<code>Serializable</code>接口，否则报错</li>
-<li>必须要引用slf4j，否则报错</li>
-<li>要添加Component标记，否则不能注入</li>
-<li>服务器的memcached必须启动，否则项目不能启动<ul>
-<li>启动命令<code>memcached -d -m 1024 -u root -l ip地址 -p 端口号 -c 1024 -P /tmp/memcached.pid</code></li>
-</ul>
-</li>
-</ul>
-<h5 id="log4j"><a href="#log4j" class="headerlink" title="log4j"></a>log4j</h5><h5 id="jackson"><a href="#jackson" class="headerlink" title="jackson"></a>jackson</h5><ul>
-<li>一般序列化使用的方法  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ObjectMapper mapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line">String json = mapper.writeValueAsString(responseMap);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="activemq"><a href="#activemq" class="headerlink" title="activemq"></a>activemq</h5><ul>
-<li><p>启动服务器的activemq</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./activemq start</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置文件在application.xml中</p>
-</li>
-</ul>
+        <p>类中的成员变量(field)可以分为类变量和实例变量。有static修饰的为类变量，没有static修饰的为实例变量。</p>
+<p>实例变量可以在初始化时赋值，也可以在初始化代码块中赋值，赋值顺序和代码的顺序相同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Sub&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        number=1;</span><br><span class="line">    &#125;</span><br><span class="line">    int number=2;</span><br><span class="line">&#125;</span><br><span class="line">public class Test&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        Sub sub=new Sub();</span><br><span class="line">        System.out.println(sub.number);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个代码输出的是<code>2</code></p>
+<p>因为编译器在编译时会将<code>int number=2</code>拆分为两句，一句定义number变量，一句为其赋值。初始化的赋值语句和初始化代码块中的赋值语句地位相同，执行顺序和代码顺序相同，且编译后都会放在构造器中最先执行。</p>
+<hr>
+<p>类变量的赋值相同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class StaticSub&#123;</span><br><span class="line">    static&#123;</span><br><span class="line">        number=1;</span><br><span class="line">    &#125;</span><br><span class="line">    static int number=2;</span><br><span class="line">&#125;</span><br><span class="line">public class Test&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        System.out.println(StaticSub.number);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>代码输出为<code>2</code></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class StaticSub2&#123;</span><br><span class="line">    static StaticSub2 INSTANCE=new StaticSub2(2);</span><br><span class="line">    static int initNumber=10;</span><br><span class="line">    int current;</span><br><span class="line">    public StaticSub2(int discount)&#123;</span><br><span class="line">        current=initNumber-discount;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class Test&#123;</span><br><span class="line">    System.out.println(StaticSub2.INSTANCE.current);</span><br><span class="line">    System.out.println((new StaticSub2(2)).current);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码输出为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-2</span><br><span class="line">8</span><br></pre></td></tr></table></figure></p>
+<p>原因就是初始化赋值的顺序和代码顺序相关，在INSTANCE初始化赋值时initNumber还没有进行赋值为0。在使用实例时已经进行了初始化为10。查看字节码如下所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class memory.StaticSub2 &#123;</span><br><span class="line">  static memory.StaticSub2 INSTANCE;</span><br><span class="line"></span><br><span class="line">  static int initNumber;</span><br><span class="line"></span><br><span class="line">  int current;</span><br><span class="line"></span><br><span class="line">  public memory.StaticSub2(int);</span><br><span class="line">    Code:</span><br><span class="line">       0: aload_0</span><br><span class="line">       1: invokespecial #1                  // Method java/lang/Object.&quot;&lt;init&gt;&quot;:()V</span><br><span class="line">       4: aload_0</span><br><span class="line">       5: getstatic     #2                  // Field initNumber:I</span><br><span class="line">       8: iload_1</span><br><span class="line">       9: isub</span><br><span class="line">      10: putfield      #3                  // Field current:I</span><br><span class="line">      13: return</span><br><span class="line"></span><br><span class="line">  static &#123;&#125;;</span><br><span class="line">    Code:</span><br><span class="line">       0: new           #4                  // class memory/StaticSub2</span><br><span class="line">       3: dup</span><br><span class="line">       4: iconst_2</span><br><span class="line">       5: invokespecial #5                  // Method &quot;&lt;init&gt;&quot;:(I)V</span><br><span class="line">       8: putstatic     #6                  // Field INSTANCE:Lmemory/StaticSub2;</span><br><span class="line">      11: bipush        10</span><br><span class="line">      13: putstatic     #2                  // Field initNumber:I</span><br><span class="line">      16: return</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看到在初始化INSTANCE时还没对initNumber赋值。</p>
+<hr>
+<p>子类构造器若没有显式调用super和this，将默认为隐式调用了父类的无参构造器</p>
+<p>创建子类的对象时会先调用父类的构造器，再执行子类的初始化代码块操作。</p>
+<p><strong>当变量的编译时类型和运行时类型不同时，通过该变量访问他引用的对象的实例变量时，该实例变量的值由声明该变量的类型决定。但通过该变量调用它引用的对象的实例方法时由它实际引用的对象决定</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class Animal &#123;</span><br><span class="line">    private int age=2;</span><br><span class="line">    public Animal()&#123;</span><br><span class="line">        System.out.println(&quot;animal 初始化&quot;);</span><br><span class="line">        this.show();</span><br><span class="line">    &#125;</span><br><span class="line">    public void show()&#123;</span><br><span class="line">        System.out.println(age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class Wolf extends Animal&#123;</span><br><span class="line">    private int age=4;</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(&quot;wolf初始化代码块&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public Wolf()&#123;</span><br><span class="line">        age=6;</span><br><span class="line">    &#125;</span><br><span class="line">    public void show()&#123;</span><br><span class="line">        System.out.println(age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        new Wolf();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码输出为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">animal 初始化</span><br><span class="line">0</span><br><span class="line">wolf初始化代码块</span><br></pre></td></tr></table></figure></p>
+<p>这个情形是父类调用了子类的成员变量</p>
+<hr>
+<p>如果父类的构造器中使用了子类重写的方法，在子类构造器执行前将会执行子类重写之后的方法，而这时子类的该方法不能访问到子类赋值的变量。</p>
+<hr>
+<p>final修饰的实例变量可以在三个位置赋值：初始化时赋值，非静态化初始化代码块中赋值，构造器中赋值。但编译之后都是将赋值操作放在了构造器中</p>
+<p>final修饰的类变量可以在两个地方赋值：初始化时赋值，静态初始化代码块中赋值。但编译之后都是将赋值操作放在了静态初始化代码块中</p>
+<p>final修饰的局部变量只有在定义时赋值</p>
+<p>对于一个使用final修饰的变量，如果在定义时指定其初始值，且这个初始值可以在编译时确定下来，那么这个变量将被系统视为一个宏变量，即常量。</p>
+<p>只有在用final定义变量时就指定初始值才能起到宏变量的效果，若是在初始化代码块中赋值则不能起到效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class FinalTest&#123;</span><br><span class="line">    final String str1;</span><br><span class="line">    final String str2;</span><br><span class="line">    final String str3=&quot;java&quot;;</span><br><span class="line">    &#123;</span><br><span class="line">        str1=&quot;java&quot;;</span><br><span class="line">        str2=&quot;java&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    public void show()&#123;</span><br><span class="line">        System.out.println(str1+str1==&quot;javajava&quot;);</span><br><span class="line">        System.out.println(str2+str2==&quot;javajava&quot;);</span><br><span class="line">        System.out.println(str3+str3==&quot;javajava&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>内部类使用的外部局部变量必须定义为final，因为内部类会造成闭包，扩大局部变量的作用域，延长其存在时间，所以要将其定义为final，使其不可改变。</p>
 
       
 
@@ -295,7 +255,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/27/SpringDemo项目中的技术/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/03/成员变量和内存控制/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -309,18 +269,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/27/centos配置java环境的问题/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/03/java 数组/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          centos配置java环境的问题
+          (no title)
         
       </div>
     </a>
   
   
-    <a href="/2018/08/27/使用hexo和githubPage搭建博客/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">使用hexo和githubPage搭建博客</div>
+    <a href="/2019/03/03/常见的集合分析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   

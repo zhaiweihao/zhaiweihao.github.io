@@ -141,6 +141,351 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-java 数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>java数组的初始化就是为数组对象的元素分配内存空间，并为每个数组元素指定初始值。</p>
+<ul>
+<li>静态初始化<ul>
+<li>初始化时由程序员显示指定每个元素的初始值，由系统决定数组长度</li>
+</ul>
+</li>
+<li>动态初始化<ul>
+<li>初始化时由程序员指定数组长度，系统为数组元素分配初始值</li>
+</ul>
+</li>
+</ul>
+<p>数组初始化完成，数组长度不能改变</p>
+<p>数组变量是引用型变量</p>
+<p>js中的数组为动态数组，可以改变长度</p>
+<p>分清数组变量和数组对象的区别</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/03/java 数组/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-成员变量和内存控制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>类中的成员变量(field)可以分为类变量和实例变量。有static修饰的为类变量，没有static修饰的为实例变量。</p>
+<p>实例变量可以在初始化时赋值，也可以在初始化代码块中赋值，赋值顺序和代码的顺序相同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Sub&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        number=1;</span><br><span class="line">    &#125;</span><br><span class="line">    int number=2;</span><br><span class="line">&#125;</span><br><span class="line">public class Test&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        Sub sub=new Sub();</span><br><span class="line">        System.out.println(sub.number);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个代码输出的是<code>2</code></p>
+<p>因为编译器在编译时会将<code>int number=2</code>拆分为两句，一句定义number变量，一句为其赋值。初始化的赋值语句和初始化代码块中的赋值语句地位相同，执行顺序和代码顺序相同，且编译后都会放在构造器中最先执行。</p>
+<hr>
+<p>类变量的赋值相同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class StaticSub&#123;</span><br><span class="line">    static&#123;</span><br><span class="line">        number=1;</span><br><span class="line">    &#125;</span><br><span class="line">    static int number=2;</span><br><span class="line">&#125;</span><br><span class="line">public class Test&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        System.out.println(StaticSub.number);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>代码输出为<code>2</code></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class StaticSub2&#123;</span><br><span class="line">    static StaticSub2 INSTANCE=new StaticSub2(2);</span><br><span class="line">    static int initNumber=10;</span><br><span class="line">    int current;</span><br><span class="line">    public StaticSub2(int discount)&#123;</span><br><span class="line">        current=initNumber-discount;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class Test&#123;</span><br><span class="line">    System.out.println(StaticSub2.INSTANCE.current);</span><br><span class="line">    System.out.println((new StaticSub2(2)).current);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码输出为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-2</span><br><span class="line">8</span><br></pre></td></tr></table></figure></p>
+<p>原因就是初始化赋值的顺序和代码顺序相关，在INSTANCE初始化赋值时initNumber还没有进行赋值为0。在使用实例时已经进行了初始化为10。查看字节码如下所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class memory.StaticSub2 &#123;</span><br><span class="line">  static memory.StaticSub2 INSTANCE;</span><br><span class="line"></span><br><span class="line">  static int initNumber;</span><br><span class="line"></span><br><span class="line">  int current;</span><br><span class="line"></span><br><span class="line">  public memory.StaticSub2(int);</span><br><span class="line">    Code:</span><br><span class="line">       0: aload_0</span><br><span class="line">       1: invokespecial #1                  // Method java/lang/Object.&quot;&lt;init&gt;&quot;:()V</span><br><span class="line">       4: aload_0</span><br><span class="line">       5: getstatic     #2                  // Field initNumber:I</span><br><span class="line">       8: iload_1</span><br><span class="line">       9: isub</span><br><span class="line">      10: putfield      #3                  // Field current:I</span><br><span class="line">      13: return</span><br><span class="line"></span><br><span class="line">  static &#123;&#125;;</span><br><span class="line">    Code:</span><br><span class="line">       0: new           #4                  // class memory/StaticSub2</span><br><span class="line">       3: dup</span><br><span class="line">       4: iconst_2</span><br><span class="line">       5: invokespecial #5                  // Method &quot;&lt;init&gt;&quot;:(I)V</span><br><span class="line">       8: putstatic     #6                  // Field INSTANCE:Lmemory/StaticSub2;</span><br><span class="line">      11: bipush        10</span><br><span class="line">      13: putstatic     #2                  // Field initNumber:I</span><br><span class="line">      16: return</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看到在初始化INSTANCE时还没对initNumber赋值。</p>
+<hr>
+<p>子类构造器若没有显式调用super和this，将默认为隐式调用了父类的无参构造器</p>
+<p>创建子类的对象时会先调用父类的构造器，再执行子类的初始化代码块操作。</p>
+<p><strong>当变量的编译时类型和运行时类型不同时，通过该变量访问他引用的对象的实例变量时，该实例变量的值由声明该变量的类型决定。但通过该变量调用它引用的对象的实例方法时由它实际引用的对象决定</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class Animal &#123;</span><br><span class="line">    private int age=2;</span><br><span class="line">    public Animal()&#123;</span><br><span class="line">        System.out.println(&quot;animal 初始化&quot;);</span><br><span class="line">        this.show();</span><br><span class="line">    &#125;</span><br><span class="line">    public void show()&#123;</span><br><span class="line">        System.out.println(age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class Wolf extends Animal&#123;</span><br><span class="line">    private int age=4;</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(&quot;wolf初始化代码块&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public Wolf()&#123;</span><br><span class="line">        age=6;</span><br><span class="line">    &#125;</span><br><span class="line">    public void show()&#123;</span><br><span class="line">        System.out.println(age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        new Wolf();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码输出为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">animal 初始化</span><br><span class="line">0</span><br><span class="line">wolf初始化代码块</span><br></pre></td></tr></table></figure></p>
+<p>这个情形是父类调用了子类的成员变量</p>
+<hr>
+<p>如果父类的构造器中使用了子类重写的方法，在子类构造器执行前将会执行子类重写之后的方法，而这时子类的该方法不能访问到子类赋值的变量。</p>
+<hr>
+<p>final修饰的实例变量可以在三个位置赋值：初始化时赋值，非静态化初始化代码块中赋值，构造器中赋值。但编译之后都是将赋值操作放在了构造器中</p>
+<p>final修饰的类变量可以在两个地方赋值：初始化时赋值，静态初始化代码块中赋值。但编译之后都是将赋值操作放在了静态初始化代码块中</p>
+<p>final修饰的局部变量只有在定义时赋值</p>
+<p>对于一个使用final修饰的变量，如果在定义时指定其初始值，且这个初始值可以在编译时确定下来，那么这个变量将被系统视为一个宏变量，即常量。</p>
+<p>只有在用final定义变量时就指定初始值才能起到宏变量的效果，若是在初始化代码块中赋值则不能起到效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class FinalTest&#123;</span><br><span class="line">    final String str1;</span><br><span class="line">    final String str2;</span><br><span class="line">    final String str3=&quot;java&quot;;</span><br><span class="line">    &#123;</span><br><span class="line">        str1=&quot;java&quot;;</span><br><span class="line">        str2=&quot;java&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    public void show()&#123;</span><br><span class="line">        System.out.println(str1+str1==&quot;javajava&quot;);</span><br><span class="line">        System.out.println(str2+str2==&quot;javajava&quot;);</span><br><span class="line">        System.out.println(str3+str3==&quot;javajava&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>内部类使用的外部局部变量必须定义为final，因为内部类会造成闭包，扩大局部变量的作用域，延长其存在时间，所以要将其定义为final，使其不可改变。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/03/成员变量和内存控制/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-常见的集合分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>set 无序，集合元素不可重复</p>
+<p>map 多个键值对组成的组合</p>
+<p>HashSet底层使用的就是HashMap，因此HashMap的问题HashSet也会碰到</p>
+<p>HashMap是数组加链表的结构，1.8之后链表长度大于8时会转化为红黑树。1.8之前，时间复杂度最坏为O(n)(所有元素都放在一个桶，成为一条长链表)。1.8之后时间复杂度最坏为O(lgn)(红黑树的优化策略)</p>
+<p>1.8之前的HashMap，当元素hash之后放在链表中，是放在链表的头部，也就是直接放到桶中。原来桶中的元素放在该元素的next位置。</p>
+<p>由于HashMap，ArrayList等使用数组的集合元素会进行容量计算，自动扩容，出于性能的考虑，若是知道长度，尽量在初始化时指定容量。或者适量将初始容量设置大点。</p>
+<p>重写类的equals时需要重写hashCode方法</p>
+<p>TreeMap，TreeSet底层是红黑树，用的较少。</p>
+<p>HashMap的values返回的是一个不存储元素的集合，其实是一个iterator对象，迭代器。</p>
+<p>Map和List的区别。List可以看成所有key都是int值的Map。</p>
+<p>ArrayList和LinkList，一个是数组，一个是链表</p>
+<p>数组的查询为O(1)，增加操作可能会生成新的数组，影响性能，增加和删除操作都会对数组进行搬家操作，影响性能</p>
+<p>Vector是线程安全的ArrayList</p>
+<p>LinkList是链表，查找操作为O(n)，增加和删除操作可能也会进行元素查找，若是在头尾进行插入和删除操作，可以将LinkList作为双端队列和栈使用，性能较好</p>
+<p>尽量使用ArrayList</p>
+<p>使用List的迭代器时，若在迭代时删除倒数第二个元素不会抛出异常。使用set的迭代器时，若在迭代时删除最后一个元素不会抛出异常。原因在于他们各自实现的hashNext方法。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/03/常见的集合分析/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-jvm内存回收" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="对象的引用类型"><a href="#对象的引用类型" class="headerlink" title="对象的引用类型"></a>对象的引用类型</h5><ul>
+<li>强引用 直接new对象</li>
+<li>软引用 使用SoftReference&lt;&gt;，在内存空间足够的情况直接GC不会回收。内存空间不够的情况会回收</li>
+<li>弱引用 使用WeakReference&lt;&gt;，调用<code>System.gc(); System.runFinalization();</code>会进行回收</li>
+<li>虚引用 PhantomReference主要用于跟踪对象被垃圾回收的状态，虚引用不能单独使用，必须和引用队列一起使用。虚引用在对象释放之前会将对应的虚引用添加到它关联的引用队列，这使得可以在对象被回收之前采取行动</li>
+</ul>
+<p>使用这些类时不能保留对象的强引用，显示调用<code>obj=null</code>即可。</p>
+<p><code>String s1=&quot;ace&quot;</code>生成的字符串常量会被jvm缓存，默认为强引用</p>
+<p>可以使用WeakHashMap，在调用gc之后，它里面的所有key-value都会被回收</p>
+<p>显示调用<code>obj=null</code>可以防止内存泄漏</p>
+<h5 id="垃圾回收的一些术语："><a href="#垃圾回收的一些术语：" class="headerlink" title="垃圾回收的一些术语："></a>垃圾回收的一些术语：</h5><ul>
+<li>串行 Serial<ul>
+<li>不管系统有多少cpu，都只用一个cpu专门进行垃圾回收工作</li>
+</ul>
+</li>
+<li>并行 Parallel<ul>
+<li>将回收工作拆成多个部分，每个部分由一个cpu负责，使用多个cpu并行回收。这种效率很高，但是复杂度高，会生成较多的内存碎片</li>
+<li>通过参数 -XX:+UseParallelGC 启用</li>
+</ul>
+</li>
+<li>并发 Concurrent<ul>
+<li>不会导致应用程序暂停。这种系统开销较大，需要更多的堆内存</li>
+</ul>
+</li>
+<li>应用程序停止 Stop-the-world<ul>
+<li>在回收的同时导致应用程序暂停</li>
+</ul>
+</li>
+<li>压缩 Compacting<ul>
+<li>将所有的活对象搬迁到一起，然后将之前占用的内存全部回收</li>
+</ul>
+</li>
+<li>不压缩 Non-compacting<ul>
+<li>直接回收内存。会造成很多内存碎片</li>
+</ul>
+</li>
+<li>复制 Copying<ul>
+<li>将所有可达对象复制到另一块相同的内存。不会产生内存碎片，但是需要复制数据和额外的内存。</li>
+<li>复制算法只遍历可达对象<h5 id="标志清除算法"><a href="#标志清除算法" class="headerlink" title="标志清除算法"></a>标志清除算法</h5>是不压缩的回收方式，这种需要遍历两次堆内存，回收后会产生内存碎片</li>
+</ul>
+</li>
+</ul>
+<h5 id="分代回收"><a href="#分代回收" class="headerlink" title="分代回收"></a>分代回收</h5><p>现行的垃圾回收器采用分代的方式采用不同的回收设计。</p>
+<ul>
+<li>年轻代 Young<ul>
+<li>因为很多Young代对象会很快进入不可达状态，所以Young代使用复制算法(复制算法只遍历可达对象)</li>
+<li>Young代由一个Eden区和两个Survivor区组成(S1,S2)。对象会先被分配到Eden区，发生gc时可达对象将被复制到一块Survivor区。同一时间只有一个Survivor区用来保存对象，另一个是空的，来保证下一次gc时分配对象内存。</li>
+<li>From Survivor对象至少经历过一次回收，因为对象开始被分配到Eden区，回收之后进入Survivor区</li>
+</ul>
+</li>
+<li>老年代 Old<ul>
+<li>Young代中对象经过多次垃圾回收仍然没有被回收掉，将进入老年代</li>
+<li>由于Old代的对象会越来越多，因此Old代控件比Young代大</li>
+<li>Old代使用标记压缩算法。因为Old代很少有对象死掉，所以不会产生大量的内存碎片。而且不会复制Old代中的大量对象</li>
+<li>3个阶段：mark标记可达对象 sweep清除 compact压缩</li>
+</ul>
+</li>
+<li>永久代 Permanent<ul>
+<li>主要用于装载Class，方法等信息</li>
+<li>像Spring等使用动态代理进行Aop拦截的框架，会生成很多动态代理类，需要更多的Permanent内存</li>
+</ul>
+</li>
+</ul>
+<p>Young区会经常进行垃圾回收，因为它的开销较小，所以又称次要回收(minor collection)。Old区内存将要用完时，会进行全回收，开销较大(major collection)</p>
+<h5 id="一些jvm涉及垃圾回收的参数"><a href="#一些jvm涉及垃圾回收的参数" class="headerlink" title="一些jvm涉及垃圾回收的参数"></a>一些jvm涉及垃圾回收的参数</h5><ul>
+<li>-Xmx 设置jvm堆内存最大容量</li>
+<li>-Xms 设置jvm堆内存初始容量</li>
+<li>-XX:MinHeapFreeRadio=40 设置堆内存最小的空闲百分比</li>
+<li>-XX:MaxHeapFreeRadio=70 设置堆内存最大的空闲百分比</li>
+<li>-XX:NewRadio=2 设置Young/Old内存的百分比</li>
+<li>-XX:NewSize=60m 设置Young代内存的默认容量</li>
+<li>-XX:SurvivorRadio=8 设置Young代中eden/survicor的比例</li>
+<li>XX:MaxNewSize=128m 设置Young代内存的最大容量</li>
+<li>XX:PermSize=128m 设置Permanent代的默认容量</li>
+<li>XX:maxPermSize=128m 设置Permanent代的最大容量</li>
+</ul>
+<h5 id="并行回收器"><a href="#并行回收器" class="headerlink" title="并行回收器"></a>并行回收器</h5><p>并行回收器对于Young代使用多线程操作，对于Old代仍然使用单线程，标记整理的方式进行回收。</p>
+<h5 id="并行压缩回收器"><a href="#并行压缩回收器" class="headerlink" title="并行压缩回收器"></a>并行压缩回收器</h5><p>并行压缩回收器对Old代的回收使用了不同算法：</p>
+<ul>
+<li>系统将Old代分成几个固定大小的区域。mark阶段多个垃圾回收线程并行标记Old代的可达对象，当某个对象被标记为可达对象时，还会更新该对象所在区域的大小以及该对象的位置信息。</li>
+<li>summary阶段会从最左边的区域开始检验各个区域的密度(因为压缩操作会在Old代的左边部分存储大量对象)，当检测到某个区域的密度大于某个数值(可达对象的密度较小)时，垃圾回收器会压缩并回收这个区域以及其右边的所有区域，该区域左边的区域会被标识为密集区域，密集区域不会分配对象，也不会进行压缩。summary阶段为串行操作</li>
+<li>compact阶段 回收器通过summary阶段生成的数据识别出哪些区域是需要装填的，多个垃圾回收线程可以并行地将数据复制到这些区域中。该操作会在Old代的一端存储大量活动对象<br>，另一端则存在大块的内存块</li>
+</ul>
+<h5 id="CMS回收器-并发标记清除算法"><a href="#CMS回收器-并发标记清除算法" class="headerlink" title="CMS回收器 并发标记清除算法"></a>CMS回收器 并发标记清除算法</h5><p>CMS回收器对Young代采用的算法和并行回收相同</p>
+<p>加大Young代内存的好处：避免频繁的回收。坏处：复制成本显著提高，增加系统暂停时间。</p>
+<p>CMS改善的是Old代的回收算法，会有两次短暂的暂停，第二次暂停是为了remark操作，避免有漏的。CMS回收器不会等待Old代满，因为是和系统并发执行，若等Old代满了将无内存可用。</p>
+<p>CMS不会进行内存压缩，它会在内部维护一个可用内存的列表，当需要分配对象时，先查询列表。这样降低了从Young代移动到Old代的效率。</p>
+<p>CMS回收器需要更大的堆内存</p>
+<h5 id="内存管理的技巧"><a href="#内存管理的技巧" class="headerlink" title="内存管理的技巧"></a>内存管理的技巧</h5><ul>
+<li>使用直接量。例如字符串，jvm会缓存字符串</li>
+<li>使用StringBuilder和StringBuffer进行字符串拼接</li>
+<li>尽早释放无用对象的引用<code>obj=null;</code></li>
+<li>尽量少用静态变量</li>
+<li>避免在经常调用的方法，循环中创建Java对象</li>
+<li>缓存经常使用的对象 (数据库连接池)</li>
+<li>不要使用finalize方法</li>
+<li>考虑使用SoftReference，但是要记得引用的不确定性，进行null判断，为null时重新创建对象</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/03/jvm内存回收/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-协同过滤算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -633,7 +978,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 ace
+    		&copy; 2019 ace
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
