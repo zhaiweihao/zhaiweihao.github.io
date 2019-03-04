@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>使用hexo和githubPage搭建博客 | ace的个人小站</title>
+  <title>4.jvm内存回收 | ace的个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装hexo hexo基于node.js，使用npm 安装 npm install -g hexo安装为全局 跳转到指定的目录，hexo init blog创建博客的基础框架，这里的博客名为blog cd blog npm install hexo g生成部署文件 hexo s启动本地，查看localhost:4000">
-<meta name="keywords" content="ace">
+  <meta name="description" content="对象的引用类型 强引用 直接new对象 软引用 使用SoftReference&amp;lt;&amp;gt;，在内存空间足够的情况直接GC不会回收。内存空间不够的情况会回收 弱引用 使用WeakReference&amp;lt;&amp;gt;，调用System.gc(); System.runFinalization();会进行回收 虚引用 PhantomReference主要用于跟踪对象被垃圾回收的状态，虚引用不能单独使用">
+<meta name="keywords" content="疯狂Java：突破程序员基本功的16课">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用hexo和githubPage搭建博客">
-<meta property="og:url" content="http://yoursite.com/2018/08/27/使用hexo和githubPage搭建博客/index.html">
+<meta property="og:title" content="4.jvm内存回收">
+<meta property="og:url" content="http://yoursite.com/2019/03/02/jvm内存回收/index.html">
 <meta property="og:site_name" content="ace的个人小站">
-<meta property="og:description" content="安装hexo hexo基于node.js，使用npm 安装 npm install -g hexo安装为全局 跳转到指定的目录，hexo init blog创建博客的基础框架，这里的博客名为blog cd blog npm install hexo g生成部署文件 hexo s启动本地，查看localhost:4000">
+<meta property="og:description" content="对象的引用类型 强引用 直接new对象 软引用 使用SoftReference&amp;lt;&amp;gt;，在内存空间足够的情况直接GC不会回收。内存空间不够的情况会回收 弱引用 使用WeakReference&amp;lt;&amp;gt;，调用System.gc(); System.runFinalization();会进行回收 虚引用 PhantomReference主要用于跟踪对象被垃圾回收的状态，虚引用不能单独使用">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-27T06:24:27.517Z">
+<meta property="og:updated_time" content="2019-03-04T09:21:18.872Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用hexo和githubPage搭建博客">
-<meta name="twitter:description" content="安装hexo hexo基于node.js，使用npm 安装 npm install -g hexo安装为全局 跳转到指定的目录，hexo init blog创建博客的基础框架，这里的博客名为blog cd blog npm install hexo g生成部署文件 hexo s启动本地，查看localhost:4000">
+<meta name="twitter:title" content="4.jvm内存回收">
+<meta name="twitter:description" content="对象的引用类型 强引用 直接new对象 软引用 使用SoftReference&amp;lt;&amp;gt;，在内存空间足够的情况直接GC不会回收。内存空间不够的情况会回收 弱引用 使用WeakReference&amp;lt;&amp;gt;，调用System.gc(); System.runFinalization();会进行回收 虚引用 PhantomReference主要用于跟踪对象被垃圾回收的状态，虚引用不能单独使用">
   
     <link rel="alternative" href="/atom.xml" title="ace的个人小站" type="application/atom+xml">
   
@@ -143,79 +143,123 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-使用hexo和githubPage搭建博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-jvm内存回收" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      使用hexo和githubPage搭建博客
+      4.jvm内存回收
     </h1>
   
 
         
-        <a href="/2018/08/27/使用hexo和githubPage搭建博客/" class="archive-article-date">
-  	<time datetime="2018-08-27T05:16:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
+        <a href="/2019/03/02/jvm内存回收/" class="archive-article-date">
+  	<time datetime="2019-03-02T10:45:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h5><ul>
-<li>hexo基于node.js，使用npm 安装</li>
-<li><code>npm install -g hexo</code>安装为全局</li>
-<li>跳转到指定的目录，<code>hexo init blog</code>创建博客的基础框架，这里的博客名为<code>blog</code></li>
-<li><code>cd blog</code></li>
-<li><code>npm install</code></li>
-<li><code>hexo g</code>生成部署文件</li>
-<li><code>hexo s</code>启动本地，查看<code>localhost:4000</code></li>
+        <h5 id="对象的引用类型"><a href="#对象的引用类型" class="headerlink" title="对象的引用类型"></a>对象的引用类型</h5><ul>
+<li>强引用 直接new对象</li>
+<li>软引用 使用SoftReference&lt;&gt;，在内存空间足够的情况直接GC不会回收。内存空间不够的情况会回收</li>
+<li>弱引用 使用WeakReference&lt;&gt;，调用<code>System.gc(); System.runFinalization();</code>会进行回收</li>
+<li>虚引用 PhantomReference主要用于跟踪对象被垃圾回收的状态，虚引用不能单独使用，必须和引用队列一起使用。虚引用在对象释放之前会将对应的虚引用添加到它关联的引用队列，这使得可以在对象被回收之前采取行动<a id="more"></a>
+使用这些类时不能保留对象的强引用，显示调用<code>obj=null</code>即可。</li>
 </ul>
-<a id="more"></a>
-<h5 id="使用github的github-page"><a href="#使用github的github-page" class="headerlink" title="使用github的github page"></a>使用github的github page</h5><ul>
-<li>创建repository，名字为<code>username.github.io</code>，<code>username</code>为git账户的用户名</li>
-<li><code>git clone url</code>将新建的仓储下到本地</li>
-<li><code>cd username.github.io</code></li>
-<li><code>echo &quot;hello world&quot; &gt; index.html</code>新建index.html文件</li>
-<li><code>git add --all</code></li>
-<li><code>git commit -m &quot;initial commit&quot;</code></li>
-<li><code>git push -u origin master</code></li>
-<li>打开<code>https://username.github.io</code>可以查看博客</li>
-<li>在Setting中可以选择github page的主题</li>
+<p><code>String s1=&quot;ace&quot;</code>生成的字符串常量会被jvm缓存，默认为强引用</p>
+<p>可以使用WeakHashMap，在调用gc之后，它里面的所有key-value都会被回收</p>
+<p>显示调用<code>obj=null</code>可以防止内存泄漏</p>
+<h5 id="垃圾回收的一些术语："><a href="#垃圾回收的一些术语：" class="headerlink" title="垃圾回收的一些术语："></a>垃圾回收的一些术语：</h5><ul>
+<li>串行 Serial<ul>
+<li>不管系统有多少cpu，都只用一个cpu专门进行垃圾回收工作</li>
 </ul>
-<h5 id="整合hexo和github-page"><a href="#整合hexo和github-page" class="headerlink" title="整合hexo和github page"></a>整合hexo和github page</h5><ul>
-<li>我们可以将hexo整合到githubpage中</li>
-<li><p>为了上传文件，我们首先需要在github中添加<code>ssh key</code></p>
+</li>
+<li>并行 Parallel<ul>
+<li>将回收工作拆成多个部分，每个部分由一个cpu负责，使用多个cpu并行回收。这种效率很高，但是复杂度高，会生成较多的内存碎片</li>
+<li>通过参数 -XX:+UseParallelGC 启用</li>
+</ul>
+</li>
+<li>并发 Concurrent<ul>
+<li>不会导致应用程序暂停。这种系统开销较大，需要更多的堆内存</li>
+</ul>
+</li>
+<li>应用程序停止 Stop-the-world<ul>
+<li>在回收的同时导致应用程序暂停</li>
+</ul>
+</li>
+<li>压缩 Compacting<ul>
+<li>将所有的活对象搬迁到一起，然后将之前占用的内存全部回收</li>
+</ul>
+</li>
+<li>不压缩 Non-compacting<ul>
+<li>直接回收内存。会造成很多内存碎片</li>
+</ul>
+</li>
+<li>复制 Copying<ul>
+<li>将所有可达对象复制到另一块相同的内存。不会产生内存碎片，但是需要复制数据和额外的内存。</li>
+<li>复制算法只遍历可达对象<h5 id="标志清除算法"><a href="#标志清除算法" class="headerlink" title="标志清除算法"></a>标志清除算法</h5>是不压缩的回收方式，这种需要遍历两次堆内存，回收后会产生内存碎片</li>
+</ul>
+</li>
+</ul>
+<h5 id="分代回收"><a href="#分代回收" class="headerlink" title="分代回收"></a>分代回收</h5><p>现行的垃圾回收器采用分代的方式采用不同的回收设计。</p>
 <ul>
-<li><code>ls -al ~/.ssh</code>查看当前是否有<code>ssh key</code></li>
-<li><p>在当前的<code>git bash</code>中设置<code>name</code>和<code>email</code>，<code>username</code>和<code>email</code>是git账户的<code>username</code>和<code>email</code></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;username&quot;</span><br><span class="line">git config --global user.email &quot;email&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>输入<code>ssh-keygen -t rsa -C &quot;email&quot;</code> <code>email</code>为上面的email</p>
-</li>
-<li>获取key <code>cat ~/.ssh/id_rsa.pub</code></li>
-<li>拷贝key到github</li>
+<li>年轻代 Young<ul>
+<li>因为很多Young代对象会很快进入不可达状态，所以Young代使用复制算法(复制算法只遍历可达对象)</li>
+<li>Young代由一个Eden区和两个Survivor区组成(S1,S2)。对象会先被分配到Eden区，发生gc时可达对象将被复制到一块Survivor区。同一时间只有一个Survivor区用来保存对象，另一个是空的，来保证下一次gc时分配对象内存。</li>
+<li>From Survivor对象至少经历过一次回收，因为对象开始被分配到Eden区，回收之后进入Survivor区</li>
 </ul>
 </li>
-<li><p>修改blog根目录的<code>_config.yml</code>的<code>deploy</code>节点，添加以下内容</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    type: git</span><br><span class="line">    repo: ssh://git@github.com/zhaiweihao/zhaiweihao.github.io</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装需要的组件<code>npm install hexo-deployer-git --save</code></p>
-</li>
-<li><code>hexo deploy</code>发布到github</li>
-<li>查看<code>username.github.io</code>可以发现已经变为hexo格式的博客</li>
+<li>老年代 Old<ul>
+<li>Young代中对象经过多次垃圾回收仍然没有被回收掉，将进入老年代</li>
+<li>由于Old代的对象会越来越多，因此Old代控件比Young代大</li>
+<li>Old代使用标记压缩算法。因为Old代很少有对象死掉，所以不会产生大量的内存碎片。而且不会复制Old代中的大量对象</li>
+<li>3个阶段：mark标记可达对象 sweep清除 compact压缩</li>
 </ul>
-<h5 id="使用其他主题"><a href="#使用其他主题" class="headerlink" title="使用其他主题"></a>使用其他主题</h5><ul>
-<li>github下载主题，我用的是<code>hexo-theme-yilia</code></li>
-<li><code>git clone</code>下载，将文件夹放到blog目录的theme文件夹下</li>
-<li>修改blog目录下的<code>_config.yal</code>文件的theme节点，改为<code>yilia</code></li>
-<li><code>hexo g</code>重新生成发布文件</li>
-<li><code>hexo deploy</code>发布到github</li>
-<li>刷新博客，查看样式</li>
+</li>
+<li>永久代 Permanent<ul>
+<li>主要用于装载Class，方法等信息</li>
+<li>像Spring等使用动态代理进行Aop拦截的框架，会生成很多动态代理类，需要更多的Permanent内存</li>
 </ul>
-<h5 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h5><ul>
-<li>hexo的一些基本命令</li>
+</li>
+</ul>
+<p>Young区会经常进行垃圾回收，因为它的开销较小，所以又称次要回收(minor collection)。Old区内存将要用完时，会进行全回收，开销较大(major collection)</p>
+<h5 id="一些jvm涉及垃圾回收的参数"><a href="#一些jvm涉及垃圾回收的参数" class="headerlink" title="一些jvm涉及垃圾回收的参数"></a>一些jvm涉及垃圾回收的参数</h5><ul>
+<li>-Xmx 设置jvm堆内存最大容量</li>
+<li>-Xms 设置jvm堆内存初始容量</li>
+<li>-XX:MinHeapFreeRadio=40 设置堆内存最小的空闲百分比</li>
+<li>-XX:MaxHeapFreeRadio=70 设置堆内存最大的空闲百分比</li>
+<li>-XX:NewRadio=2 设置Young/Old内存的百分比</li>
+<li>-XX:NewSize=60m 设置Young代内存的默认容量</li>
+<li>-XX:SurvivorRadio=8 设置Young代中eden/survicor的比例</li>
+<li>XX:MaxNewSize=128m 设置Young代内存的最大容量</li>
+<li>XX:PermSize=128m 设置Permanent代的默认容量</li>
+<li>XX:maxPermSize=128m 设置Permanent代的最大容量</li>
+</ul>
+<h5 id="并行回收器"><a href="#并行回收器" class="headerlink" title="并行回收器"></a>并行回收器</h5><p>并行回收器对于Young代使用多线程操作，对于Old代仍然使用单线程，标记整理的方式进行回收。</p>
+<h5 id="并行压缩回收器"><a href="#并行压缩回收器" class="headerlink" title="并行压缩回收器"></a>并行压缩回收器</h5><p>并行压缩回收器对Old代的回收使用了不同算法：</p>
+<ul>
+<li>系统将Old代分成几个固定大小的区域。mark阶段多个垃圾回收线程并行标记Old代的可达对象，当某个对象被标记为可达对象时，还会更新该对象所在区域的大小以及该对象的位置信息。</li>
+<li>summary阶段会从最左边的区域开始检验各个区域的密度(因为压缩操作会在Old代的左边部分存储大量对象)，当检测到某个区域的密度大于某个数值(可达对象的密度较小)时，垃圾回收器会压缩并回收这个区域以及其右边的所有区域，该区域左边的区域会被标识为密集区域，密集区域不会分配对象，也不会进行压缩。summary阶段为串行操作</li>
+<li>compact阶段 回收器通过summary阶段生成的数据识别出哪些区域是需要装填的，多个垃圾回收线程可以并行地将数据复制到这些区域中。该操作会在Old代的一端存储大量活动对象<br>，另一端则存在大块的内存块</li>
+</ul>
+<h5 id="CMS回收器-并发标记清除算法"><a href="#CMS回收器-并发标记清除算法" class="headerlink" title="CMS回收器 并发标记清除算法"></a>CMS回收器 并发标记清除算法</h5><p>CMS回收器对Young代采用的算法和并行回收相同</p>
+<p>加大Young代内存的好处：避免频繁的回收。坏处：复制成本显著提高，增加系统暂停时间。</p>
+<p>CMS改善的是Old代的回收算法，会有两次短暂的暂停，第二次暂停是为了remark操作，避免有漏的。CMS回收器不会等待Old代满，因为是和系统并发执行，若等Old代满了将无内存可用。</p>
+<p>CMS不会进行内存压缩，它会在内部维护一个可用内存的列表，当需要分配对象时，先查询列表。这样降低了从Young代移动到Old代的效率。</p>
+<p>CMS回收器需要更大的堆内存</p>
+<h5 id="内存管理的技巧"><a href="#内存管理的技巧" class="headerlink" title="内存管理的技巧"></a>内存管理的技巧</h5><ul>
+<li>使用直接量。例如字符串，jvm会缓存字符串</li>
+<li>使用StringBuilder和StringBuffer进行字符串拼接</li>
+<li>尽早释放无用对象的引用<code>obj=null;</code></li>
+<li>尽量少用静态变量</li>
+<li>避免在经常调用的方法，循环中创建Java对象</li>
+<li>缓存经常使用的对象 (数据库连接池)</li>
+<li>不要使用finalize方法</li>
+<li>考虑使用SoftReference，但是要记得引用的不确定性，进行null判断，为null时重新创建对象</li>
 </ul>
 
       
@@ -246,6 +290,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">疯狂Java：突破程序员基本功的16课</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -296,7 +351,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/27/使用hexo和githubPage搭建博客/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/02/jvm内存回收/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -310,18 +365,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/27/SpringDemo项目中的技术/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          SpringDemo项目中的技术
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/14/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2019/03/01/成员变量和内存控制/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">3.成员变量和内存控制</div>
       <i class="icon-circle-right"></i>
     </a>
   
