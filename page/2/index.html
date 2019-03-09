@@ -141,6 +141,163 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SpringDemo项目中的技术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/27/SpringDemo项目中的技术/">SpringDemo项目中的技术</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/27/SpringDemo项目中的技术/" class="archive-article-date">
+  	<time datetime="2018-08-27T05:42:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><pre><code>- 整理一下在SpringDemo中用到的组件，还有碰到的问题
+</code></pre><h5 id="SpringMvc"><a href="#SpringMvc" class="headerlink" title="SpringMvc"></a>SpringMvc</h5><ul>
+<li>mvc的控制在servlet.xml文件中<ol>
+<li>将<code>servlet.xml</code>添加到<code>web.xml</code>的<code>servlet</code>的<code>dispatch</code>中，相当于转发请求</li>
+<li><code>interceptor</code>的拦截配置 </li>
+<li>jsp文件所在位置</li>
+<li>去掉静态文件的访问限制 <code>mvc:resource</code>配置</li>
+<li>上传文件时添加<code>multipartResolver</code> bean</li>
+<li>跨域的配置<code>cors</code></li>
+</ol>
+</li>
+<li>spring配置在<code>applicationContext.xml</code>文件中<ol>
+<li>将该配置添加到<code>web.xml</code>的<code>context-param</code>中 </li>
+<li>添加<code>properties</code>后要记得加到<code>propertyConfigurer</code>中</li>
+<li>要注入的<code>Component,Controller,Service,Dao</code>所在的文件夹要加到<code>component-scan</code>中</li>
+<li>controller中接收url,parameter和body中的参数，produce标识的是返回的类型</li>
+<li>上传文件时，在request中接收file时根据getFile(name)，这个name要和form中fileinput的名称相同，若是不同会接收不着</li>
+</ol>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/08/27/SpringDemo项目中的技术/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/27/SpringDemo项目中的技术/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-使用hexo和githubPage搭建博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/27/使用hexo和githubPage搭建博客/">使用hexo和githubPage搭建博客</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/27/使用hexo和githubPage搭建博客/" class="archive-article-date">
+  	<time datetime="2018-08-27T05:16:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h5><ul>
+<li>hexo基于node.js，使用npm 安装</li>
+<li><code>npm install -g hexo</code>安装为全局</li>
+<li>跳转到指定的目录，<code>hexo init blog</code>创建博客的基础框架，这里的博客名为<code>blog</code></li>
+<li><code>cd blog</code></li>
+<li><code>npm install</code></li>
+<li><code>hexo g</code>生成部署文件</li>
+<li><code>hexo s</code>启动本地，查看<code>localhost:4000</code></li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/08/27/使用hexo和githubPage搭建博客/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/27/使用hexo和githubPage搭建博客/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
