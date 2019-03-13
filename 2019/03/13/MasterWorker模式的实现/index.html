@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>centos配置java环境的问题 | ace的个人小站</title>
+  <title>MasterWorker模式的实现 | ace的个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="打开ssh服务 更改/etc/ssh/sshd_config(修改配置文件需要切换到root用户)，打开端口号等选项，打开PermitRootLogin选项，保存文件退出 开启sshd服务sudo service sshd start ps -e|grep sshd可查看是否开启sshd服务  安装jdk 可根据java官网提供的jdk.tar.gz文件的路径使用wget安装，类似下面语句   1">
-<meta name="keywords" content="ace">
+  <meta name="description" content="Master-Worker模式意为拆分任务，使用多个线程去执行任务，最后再汇总。类似MapReduce。这里做一个简单的java实现。">
+<meta name="keywords" content="并发设计">
 <meta property="og:type" content="article">
-<meta property="og:title" content="centos配置java环境的问题">
-<meta property="og:url" content="http://yoursite.com/2018/08/27/centos配置java环境的问题/index.html">
+<meta property="og:title" content="MasterWorker模式的实现">
+<meta property="og:url" content="http://yoursite.com/2019/03/13/MasterWorker模式的实现/index.html">
 <meta property="og:site_name" content="ace的个人小站">
-<meta property="og:description" content="打开ssh服务 更改/etc/ssh/sshd_config(修改配置文件需要切换到root用户)，打开端口号等选项，打开PermitRootLogin选项，保存文件退出 开启sshd服务sudo service sshd start ps -e|grep sshd可查看是否开启sshd服务  安装jdk 可根据java官网提供的jdk.tar.gz文件的路径使用wget安装，类似下面语句   1">
+<meta property="og:description" content="Master-Worker模式意为拆分任务，使用多个线程去执行任务，最后再汇总。类似MapReduce。这里做一个简单的java实现。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-27T06:46:52.428Z">
+<meta property="og:updated_time" content="2019-03-13T13:38:34.367Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="centos配置java环境的问题">
-<meta name="twitter:description" content="打开ssh服务 更改/etc/ssh/sshd_config(修改配置文件需要切换到root用户)，打开端口号等选项，打开PermitRootLogin选项，保存文件退出 开启sshd服务sudo service sshd start ps -e|grep sshd可查看是否开启sshd服务  安装jdk 可根据java官网提供的jdk.tar.gz文件的路径使用wget安装，类似下面语句   1">
+<meta name="twitter:title" content="MasterWorker模式的实现">
+<meta name="twitter:description" content="Master-Worker模式意为拆分任务，使用多个线程去执行任务，最后再汇总。类似MapReduce。这里做一个简单的java实现。">
   
     <link rel="alternative" href="/atom.xml" title="ace的个人小站" type="application/atom+xml">
   
@@ -143,79 +143,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-centos配置java环境的问题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-MasterWorker模式的实现" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      centos配置java环境的问题
+      MasterWorker模式的实现
     </h1>
   
 
         
-        <a href="/2018/08/27/centos配置java环境的问题/" class="archive-article-date">
-  	<time datetime="2018-08-27T05:45:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
+        <a href="/2019/03/13/MasterWorker模式的实现/" class="archive-article-date">
+  	<time datetime="2019-03-13T13:37:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="打开ssh服务"><a href="#打开ssh服务" class="headerlink" title="打开ssh服务"></a>打开ssh服务</h5><ul>
-<li>更改<code>/etc/ssh/sshd_config</code>(修改配置文件需要切换到root用户)，打开端口号等选项，打开<code>PermitRootLogin</code>选项，保存文件退出</li>
-<li>开启sshd服务<code>sudo service sshd start</code></li>
-<li><code>ps -e|grep sshd</code>可查看是否开启sshd服务</li>
-</ul>
-<h5 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h5><ul>
-<li><p>可根据java官网提供的jdk.tar.gz文件的路径使用<code>wget</code>安装，类似下面语句</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-cookie --header &quot;Cookie: s_cc=true; oraclelicense=accept-securebackup-cookie; s_nr=1407131063040; gpw_e24=http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html; s_sq=%5B%5BB%5D%5D&quot; http://download.oracle.com/otn-pub/java/jdk/10.0.1+10/fb4372174a714e6b8c52526dc134031e/jdk-10.0.1_linux-x64_bin.tar.gz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>centos中有自带的jdk为低版本，暂时没删除，不知道是否有问题</p>
-</li>
-</ul>
-<a id="more"></a>
-<h5 id="安装tomcat"><a href="#安装tomcat" class="headerlink" title="安装tomcat"></a>安装tomcat</h5><ul>
-<li><p>使用wget命令</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c http://mirrors.hust.edu.cn/apache/tomcat/tomcat-9/v9.0.10/bin/apache-tomcat-9.0.10.tar.gz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>解压进入bin目录，开启命令<code>./startup.sh</code></p>
-</li>
-<li>若出现centos虚拟机内能访问localhost:8080，但是本地计算机不能访问，可能是开启了防火墙，可以开放端口  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#查看开放的端口</span><br><span class="line">firewall-cmd --list-ports</span><br><span class="line">#开放8080端口，使其能够tcp访问</span><br><span class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</span><br><span class="line">#重启防火墙</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h5><ul>
-<li>安装gcc <code>yum install gcc-c++</code></li>
-<li>安装pcre <code>yum install -y pcre pcre-devel</code></li>
-<li>安装zlib <code>yum install -y zlib zlib-devel</code></li>
-<li>安装openssl <code>yum install -y openssl openssl-devel</code></li>
-<li><p>下载nginx</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c https://nginx.org/download/nginx-1.12.2.tar.gz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>解压文件</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nginx-1.12.2.tar.gz</span><br><span class="line">cd nginx-1.12.2</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编译安装</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">whereis nginx</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>开启关闭控制</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/nginx/sbin/</span><br><span class="line">#开启</span><br><span class="line">./nginx</span><br><span class="line">#直接停止</span><br><span class="line">./nginx -s stop</span><br><span class="line">#等待nginx处理完成后停止</span><br><span class="line">./nginx -s quit</span><br><span class="line">#重新加载配置文件</span><br><span class="line">./nginx -s reload</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="other"><a href="#other" class="headerlink" title="other"></a>other</h5><ul>
-<li><p>windows安装tomcat</p>
-<ul>
-<li>会用到<code>JRE_HOME</code>和<code>JAVA_HOME</code>，<code>JAVA_HOME</code>应该是jdk的路径。</li>
-<li>进入bin目录，点击startup.bat可以启动，在cmd中输入<code>service.bat install</code>可以安装为windows服务</li>
-</ul>
-</li>
-<li><p>me创建dynamic-web-project方法</p>
-<ul>
-<li>创建项目时勾选<code>Show all wizard</code>，可以看到Dynamic-web-project选项</li>
-</ul>
-</li>
-</ul>
+        <p>Master-Worker模式意为拆分任务，使用多个线程去执行任务，最后再汇总。类似MapReduce。这里做一个简单的java实现。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class Task &#123;</span><br><span class="line">    public int getId() &#123;</span><br><span class="line">        return id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setId(int id) &#123;</span><br><span class="line">        this.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getName() &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    private int id;</span><br><span class="line">    private String name;</span><br><span class="line">    public Task()&#123;&#125;</span><br><span class="line">    public Task(int id, String name) &#123;</span><br><span class="line">        this.id = id;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class TaskString extends Task&#123;</span><br><span class="line">    private String name;</span><br><span class="line"></span><br><span class="line">    public String getName() &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public TaskString(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">import java.util.concurrent.ConcurrentHashMap;</span><br><span class="line">import java.util.concurrent.LinkedBlockingDeque;</span><br><span class="line"></span><br><span class="line">public class Worker implements Runnable &#123;</span><br><span class="line">    private LinkedBlockingDeque&lt;Task&gt; queue;</span><br><span class="line">    private ConcurrentHashMap&lt;Task,Object&gt; resultMap;</span><br><span class="line"></span><br><span class="line">    public LinkedBlockingDeque&lt;Task&gt; getQueue() &#123;</span><br><span class="line">        return queue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setQueue(LinkedBlockingDeque&lt;Task&gt; queue) &#123;</span><br><span class="line">        this.queue = queue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public ConcurrentHashMap&lt;Task, Object&gt; getResultMap() &#123;</span><br><span class="line">        return resultMap;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setResultMap(ConcurrentHashMap&lt;Task, Object&gt; resultMap) &#123;</span><br><span class="line">        this.resultMap = resultMap;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        while(true)&#123;</span><br><span class="line">            Task task=queue.poll();</span><br><span class="line">            if(task==null)&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">            Object result=handle(task);</span><br><span class="line">            this.resultMap.put(task,result);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 处理任务，不同类型的任务需要不同的处理方法</span><br><span class="line">     * @param task</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public Object handle(Task task)&#123;</span><br><span class="line">        Object output = null;</span><br><span class="line">        try &#123;</span><br><span class="line">            // 模拟耗时操作</span><br><span class="line">            Thread.sleep(500);</span><br><span class="line">            if(task instanceof TaskString) &#123;</span><br><span class="line">                output = ((TaskString)task).getName();</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                output = task.getId();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return output;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line">import java.util.concurrent.ConcurrentHashMap;</span><br><span class="line">import java.util.concurrent.LinkedBlockingDeque;</span><br><span class="line"></span><br><span class="line">public class Master &#123;</span><br><span class="line">    // 任务队列，每个worker取这里面的队列</span><br><span class="line">    private LinkedBlockingDeque&lt;Task&gt; queue=new LinkedBlockingDeque&lt;Task&gt;();</span><br><span class="line">    // 承装worker对象</span><br><span class="line">    private HashMap&lt;String,Thread&gt; workers= new HashMap&lt;String,Thread&gt;();</span><br><span class="line">    // 承装worker的返回结果，因为是多线程并发操作结果集，所以用ConcurrentHashMap</span><br><span class="line">    private ConcurrentHashMap&lt;Task,Object&gt; resultMap = new ConcurrentHashMap&lt;Task,Object&gt;();</span><br><span class="line">    public Master(Worker worker,int workerCount)&#123;</span><br><span class="line">        worker.setQueue(queue);</span><br><span class="line">        worker.setResultMap(resultMap);</span><br><span class="line">        for (int i=0;i&lt;workerCount;i++)&#123;</span><br><span class="line">            this.workers.put(Integer.toString(i),new Thread(worker));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 提交任务</span><br><span class="line">     * @param task 这里可以提交多种类型的任务，但是需要在Worker中做具体的处理</span><br><span class="line">     */</span><br><span class="line">    public void submit(Task task)&#123;</span><br><span class="line">        this.queue.add(task);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 多个worker并行执行任务</span><br><span class="line">     */</span><br><span class="line">    public void execute()&#123;</span><br><span class="line">        for (Map.Entry&lt;String,Thread&gt; entry:workers.entrySet())&#123;</span><br><span class="line">            entry.getValue().start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * worker是否都执行完成</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public boolean isComplete()&#123;</span><br><span class="line">        for (Map.Entry&lt;String,Thread&gt; entry:workers.entrySet())&#123;</span><br><span class="line">            if(entry.getValue().getState()!= Thread.State.TERMINATED)&#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 获取结果</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public String getResult()&#123;</span><br><span class="line">        int result=0;</span><br><span class="line">        String resultString = &quot;&quot;;</span><br><span class="line">        for (Map.Entry&lt;Task,Object&gt; me: resultMap.entrySet())&#123;</span><br><span class="line">            if(me.getKey() instanceof TaskString) &#123;</span><br><span class="line">                resultString += me.getValue().toString();</span><br><span class="line">        &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                result += (Integer) me.getValue();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return &quot;数字部分为: &quot;+ result + &quot;,字符串部分为: &quot;+resultString;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Master master=new Master(new Worker(),20);</span><br><span class="line">        for (int i = 0; i &lt; 100; i++) &#123;</span><br><span class="line">            if(i%2==0) &#123;</span><br><span class="line">                master.submit(new Task(i, &quot;task&quot; + Integer.toString(i)));</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                master.submit(new TaskString(&quot;taskString&quot;+i));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        master.execute();</span><br><span class="line">        long start=System.currentTimeMillis();</span><br><span class="line">        while(true)&#123;</span><br><span class="line">            if(master.isComplete()) &#123;</span><br><span class="line">                System.out.println(master.getResult());</span><br><span class="line">                long end = System.currentTimeMillis();</span><br><span class="line">                System.out.println(&quot;总耗时为: &quot; + (end - start));</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里我的思路是构造不同的任务(Task)，在Worker中针对不同的Task做不同的处理，然后Master中根据不同的Task的处理结果再做拼装。但是我也看到一种做法是构造不同的Worker对象，使用不同的Worker去处理。我更偏向于前一种，后面将会针对JDK默认的实现类进行分析。</p>
 
       
 
@@ -245,6 +198,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">并发设计</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -295,7 +259,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/27/centos配置java环境的问题/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/13/MasterWorker模式的实现/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -309,18 +273,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/27/常见的几种排序/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          常见的几种排序
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/27/SpringDemo项目中的技术/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SpringDemo项目中的技术</div>
+    <a href="/2019/03/12/模式的实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Future模式的实现</div>
       <i class="icon-circle-right"></i>
     </a>
   
