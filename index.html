@@ -142,6 +142,85 @@
             
   
     
+      <article id="post-线程间通信相关类的使用方法及场景" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/17/线程间通信相关类的使用方法及场景/">线程间通信相关类的使用方法及场景</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/17/线程间通信相关类的使用方法及场景/" class="archive-article-date">
+  	<time datetime="2019-03-17T03:00:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在处理线程之间通信时，我们可能用到一些JDK提供的类，这些类都在<code>java.util.concurrent</code>包下，常用到的有下面几个</p>
+<h6 id="CountDownLatch"><a href="#CountDownLatch" class="headerlink" title="CountDownLatch"></a>CountDownLatch</h6><p>CountDownLatch可以实现这样的结果：一个线程的部分代码需要等待其他多个线程执行完成才能继续执行。(例如等待初始化操作完成)<br>
+        
+          <a class="article-more-a" href="/2019/03/17/线程间通信相关类的使用方法及场景/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">并发设计</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/17/线程间通信相关类的使用方法及场景/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
       <article id="post-在Yilia主题的博客主页隐藏特定的文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -740,88 +819,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/03/05/表达式中的陷阱/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-    
-  
-    
-      <article id="post-jvm内存回收" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/02/jvm内存回收/">4.jvm内存回收</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/02/jvm内存回收/" class="archive-article-date">
-  	<time datetime="2019-03-02T10:45:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="对象的引用类型"><a href="#对象的引用类型" class="headerlink" title="对象的引用类型"></a>对象的引用类型</h5><ul>
-<li>强引用 直接new对象</li>
-<li>软引用 使用SoftReference&lt;&gt;，在内存空间足够的情况直接GC不会回收。内存空间不够的情况会回收</li>
-<li>弱引用 使用WeakReference&lt;&gt;，调用<code>System.gc(); System.runFinalization();</code>会进行回收</li>
-<li>虚引用 PhantomReference主要用于跟踪对象被垃圾回收的状态，虚引用不能单独使用，必须和引用队列一起使用。虚引用在对象释放之前会将对应的虚引用添加到它关联的引用队列，这使得可以在对象被回收之前采取行动
-        
-          <a class="article-more-a" href="/2019/03/02/jvm内存回收/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">疯狂Java：突破程序员基本功的16课</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/02/jvm内存回收/">展开全文 >></a>
         </p>
       
 
