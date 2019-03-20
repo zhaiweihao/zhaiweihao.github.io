@@ -6,20 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>常见的几种排序 | ace的个人小站</title>
+  <title>ace的个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="快速排序 取数组第一个元素为k 开始l=0;h=length-1 h–获得比k小的值，交换两个元素 l++获得比k大的值，交换两个元素 h-1&amp;lt;=l时结束一次排序 每次排序的结果是以k分为两部分，左边的数据全部比k小，右边的数据全部比k大 递归k两边的两个数组 跳出条件是分裂的数组只有一个数据 示例情况 6 5 4 3 2 1 第一次排序 1 5 4 3 2 6 第二次排序 1 5 4 3">
-<meta name="keywords" content="ace">
-<meta property="og:type" content="article">
-<meta property="og:title" content="常见的几种排序">
-<meta property="og:url" content="http://yoursite.com/2018/08/27/常见的几种排序/index.html">
+  <meta name="keywords" content="ace">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ace的个人小站">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="ace的个人小站">
-<meta property="og:description" content="快速排序 取数组第一个元素为k 开始l=0;h=length-1 h–获得比k小的值，交换两个元素 l++获得比k大的值，交换两个元素 h-1&amp;lt;=l时结束一次排序 每次排序的结果是以k分为两部分，左边的数据全部比k小，右边的数据全部比k大 递归k两边的两个数组 跳出条件是分裂的数组只有一个数据 示例情况 6 5 4 3 2 1 第一次排序 1 5 4 3 2 6 第二次排序 1 5 4 3">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-27T06:57:47.433Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常见的几种排序">
-<meta name="twitter:description" content="快速排序 取数组第一个元素为k 开始l=0;h=length-1 h–获得比k小的值，交换两个元素 l++获得比k大的值，交换两个元素 h-1&amp;lt;=l时结束一次排序 每次排序的结果是以k分为两部分，左边的数据全部比k小，右边的数据全部比k大 递归k两边的两个数组 跳出条件是分裂的数组只有一个数据 示例情况 6 5 4 3 2 1 第一次排序 1 5 4 3 2 6 第二次排序 1 5 4 3">
+<meta name="twitter:title" content="ace的个人小站">
   
     <link rel="alternative" href="/atom.xml" title="ace的个人小站" type="application/atom+xml">
   
@@ -143,111 +139,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-常见的几种排序" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    
+      <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      常见的几种排序
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/14/hello-world/">Hello World</a>
     </h1>
   
 
         
-        <a href="/2018/08/27/常见的几种排序/" class="archive-article-date">
-  	<time datetime="2018-08-27T06:52:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
+        <a href="/2018/08/14/hello-world/" class="archive-article-date">
+  	<time datetime="2018-08-14T06:09:50.829Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h5><ul>
-<li>取数组第一个元素为k</li>
-<li>开始l=0;h=length-1</li>
-<li>h–获得比k小的值，交换两个元素</li>
-<li>l++获得比k大的值，交换两个元素</li>
-<li>h-1&lt;=l时结束一次排序</li>
-<li>每次排序的结果是以k分为两部分，左边的数据全部比k小，右边的数据全部比k大</li>
-<li>递归k两边的两个数组</li>
-<li>跳出条件是分裂的数组只有一个数据</li>
-<li>示例情况<ul>
-<li>6 5 4 3 2 1</li>
-<li>第一次排序</li>
-<li>1 5 4 3 2 6</li>
-<li>第二次排序</li>
-<li>1 5 4 3 2 6</li>
-<li>第三次排序</li>
-<li>1 2 4 3 5 6</li>
-<li>第四次排序</li>
-<li>1 2 4 3 5 6</li>
-<li>第五次排序</li>
-<li>1 2 3 4 5 6</li>
-<li>第六次排序</li>
-<li>1 2 3 4 5 6</li>
-</ul>
-</li>
-<li>时间复杂度为O(nlogn)</li>
-</ul>
-<a id="more"></a>
-<h5 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h5><ul>
-<li>插入排序是冒泡排序的变种</li>
-<li>以一个元素为初始数组，将第二个元素插入到初始数组，插入方法是冒泡排序</li>
-<li>循环上面过程</li>
-<li><p>示例代码</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">private static int[] insertSort(int[] arr) &#123;</span><br><span class="line">    if (arr == null || arr.length &lt; 2) &#123;</span><br><span class="line">        return arr;</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i = 1; i &lt; arr.length; i++) &#123;</span><br><span class="line">        for (int j = i; j &gt; 0; j--) &#123;</span><br><span class="line">            if (arr[j] &lt; arr[j - 1]) &#123;</span><br><span class="line">                int temp = arr[j];</span><br><span class="line">                arr[j] = arr[j - 1];</span><br><span class="line">                arr[j - 1] = temp;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>插入排序的时间复杂度最大为O(n^2)</p>
-</li>
-</ul>
-<h5 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h5><ul>
-<li>这里说的二路归并</li>
-<li>先将数组分为length/2个数组，将这些数组排序(这时候是将两个元素排序)</li>
-<li>然后将这些两个元素的数组两两合并排序（这时候是将四个元素排序）</li>
-<li>重复上面过程，每次合并之后的元素数量&lt;&lt;1</li>
-<li>每次排序过程中会创建数组，造成空间开销</li>
-<li><p>示例代码</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">private static void merge(int[] a, int s, int m, int t) &#123;</span><br><span class="line">    int[] tmp = new int[t - s + 1];</span><br><span class="line">    int i = s, j = m, k = 0;</span><br><span class="line">    while (i &lt; m &amp;&amp; j &lt;= t) &#123;</span><br><span class="line">        if (a[i] &lt;= a[j]) &#123;</span><br><span class="line">            tmp[k] = a[i];</span><br><span class="line">            k++;</span><br><span class="line">            i++;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            tmp[k] = a[j];</span><br><span class="line">            j++;</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    while (i &lt; m) &#123;</span><br><span class="line">        tmp[k] = a[i];</span><br><span class="line">        i++;</span><br><span class="line">        k++;</span><br><span class="line">    &#125;</span><br><span class="line">    while (j &lt;= t) &#123;</span><br><span class="line">        tmp[k] = a[j];</span><br><span class="line">        j++;</span><br><span class="line">        k++;</span><br><span class="line">    &#125;</span><br><span class="line">    System.arraycopy(tmp, 0, a, s, tmp.length);</span><br><span class="line">&#125;</span><br><span class="line">public static void mergeSort(int[] a, int s, int len) &#123;</span><br><span class="line">    int size = a.length;</span><br><span class="line">    int mid = size / (len &lt;&lt; 1);</span><br><span class="line">    int c = size &amp; ((len &lt;&lt; 1) - 1);</span><br><span class="line">    //　-------归并到只剩一个有序集合的时候结束算法-------//</span><br><span class="line">    if (mid == 0)</span><br><span class="line">        return;</span><br><span class="line">    //　------进行一趟归并排序-------//</span><br><span class="line">    for (int i = 0; i &lt; mid; ++i) &#123;</span><br><span class="line">        s = i * 2 * len;</span><br><span class="line">        merge(a, s, s + len, (len &lt;&lt; 1) + s - 1);</span><br><span class="line">    &#125;</span><br><span class="line">    //　-------将剩下的数和倒数一个有序集合归并-------//</span><br><span class="line">    if (c != 0)</span><br><span class="line">        merge(a, size - c - 2 * len, size - c, size - 1);</span><br><span class="line">    //　-------递归执行下一趟归并排序------//</span><br><span class="line">    mergeSort(a, 0, 2 * len);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    int[] a = new int[]&#123;4, 3, 6, 1, 2, 5,7,2&#125;;</span><br><span class="line">    mergeSort(a, 0, 1);</span><br><span class="line">    for (int i = 0; i &lt; a.length; ++i) &#123;</span><br><span class="line">        System.out.print(a[i] + &quot;　&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>时间复杂度为O(nlogn)，时间复杂度为n</p>
-</li>
-<li></li>
-</ul>
-
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
+        
+          <a class="article-more-a" href="/2018/08/14/hello-world/#more">more >></a>
+        
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>赠一杯咖啡<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/alipay.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/wechat.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -256,84 +177,16 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/14/hello-world/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/27/常见的几种排序/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/10/17/协同过滤算法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          推荐算法-协同过滤算法
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/08/27/centos配置java环境的问题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">centos配置java环境的问题</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -353,14 +206,13 @@
 
 
 
-  
-  
-  
 
+    
   
-
   
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
   
 
 
@@ -383,8 +235,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
