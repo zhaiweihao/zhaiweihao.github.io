@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>由Disruptor引发的思考 | ace的个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Disruptor是一个线程间通信的内存消息组件，因高效低延迟而闻名(号称每秒钟处理600万订单)。它的内部实现有一些值得思考的地方，我们不仅要会用用它来设计架构，它的一些设计理念也有助于我们平时的编程。">
+  <meta name="description" content="Disruptor是一个线程间通信的内存消息组件，因高效低延迟而闻名(号称每秒钟处理600万订单)。它的内部实现有一些值得思考的地方，我们不仅要学习使用它，它的一些设计理念也有助于我们平时的编程。">
 <meta name="keywords" content="并发设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="由Disruptor引发的思考">
 <meta property="og:url" content="http://yoursite.com/2019/03/20/由Disruptor引发的思考/index.html">
 <meta property="og:site_name" content="ace的个人小站">
-<meta property="og:description" content="Disruptor是一个线程间通信的内存消息组件，因高效低延迟而闻名(号称每秒钟处理600万订单)。它的内部实现有一些值得思考的地方，我们不仅要会用用它来设计架构，它的一些设计理念也有助于我们平时的编程。">
+<meta property="og:description" content="Disruptor是一个线程间通信的内存消息组件，因高效低延迟而闻名(号称每秒钟处理600万订单)。它的内部实现有一些值得思考的地方，我们不仅要学习使用它，它的一些设计理念也有助于我们平时的编程。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-20T13:45:24.083Z">
+<meta property="og:updated_time" content="2019-03-21T08:43:20.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="由Disruptor引发的思考">
-<meta name="twitter:description" content="Disruptor是一个线程间通信的内存消息组件，因高效低延迟而闻名(号称每秒钟处理600万订单)。它的内部实现有一些值得思考的地方，我们不仅要会用用它来设计架构，它的一些设计理念也有助于我们平时的编程。">
+<meta name="twitter:description" content="Disruptor是一个线程间通信的内存消息组件，因高效低延迟而闻名(号称每秒钟处理600万订单)。它的内部实现有一些值得思考的地方，我们不仅要学习使用它，它的一些设计理念也有助于我们平时的编程。">
   
     <link rel="alternative" href="/atom.xml" title="ace的个人小站" type="application/atom+xml">
   
@@ -163,7 +163,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Disruptor是一个线程间通信的内存消息组件，因高效低延迟而闻名(号称每秒钟处理600万订单)。它的内部实现有一些值得思考的地方，我们不仅要会用用它来设计架构，它的一些设计理念也有助于我们平时的编程。<br><a id="more"></a></p>
+        <p>Disruptor是一个线程间通信的内存消息组件，因高效低延迟而闻名(号称每秒钟处理600万订单)。它的内部实现有一些值得思考的地方，我们不仅要学习使用它，它的一些设计理念也有助于我们平时的编程。<br><a id="more"></a></p>
 <h6 id="循环数组"><a href="#循环数组" class="headerlink" title="循环数组"></a>循环数组</h6><p>Disruptor中存放Event的结构为RingBuffer，相当于一个消息队列。它是一个环形数组。所谓环形，就是当大于数组长度时，越过数组尾部，继续从0开始(循环队列)。JDK提供的队列如ArrayBlockingQueue和LinkedBlockingQueue采用了加锁的方式，性能较低，而ConcurrentLinkedQueue等队列为无界队列，在生产速度较快时可能会导致内存溢出。</p>
 <h6 id="预填充"><a href="#预填充" class="headerlink" title="预填充"></a>预填充</h6><p>java中如果大量的创建对象，会引起JVM的频繁GC，而GC是非常消耗性能的。因此为了避免这种情况，在循环数组中预先填充好内容，当产生新数据，只是修改特定字段。</p>
 <h6 id="CAS替代锁"><a href="#CAS替代锁" class="headerlink" title="CAS替代锁"></a>CAS替代锁</h6><p>在多线程设计中，可能会出现对标志位的并发操作，为了保证一致性，我们一般采用锁或者CAS的方式，而CAS比锁更加高效。而且在RingBuffer中只保留一个标志位，为下一个可以写入数据位置的标志位。</p>
