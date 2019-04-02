@@ -142,6 +142,90 @@
             
   
     
+      <article id="post-面向对象的陷阱" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/09/面向对象的陷阱/">7.面向对象的陷阱</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/09/面向对象的陷阱/" class="archive-article-date">
+  	<time datetime="2019-03-09T04:31:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="instance的使用问题"><a href="#instance的使用问题" class="headerlink" title="instance的使用问题"></a>instance的使用问题</h6><p>instance运算符前面操作室的编译类型必须是如下三种情况：</p>
+<ul>
+<li>与后面的类相同</li>
+<li>是后面类的父类</li>
+<li>是后面类的子类</li>
+</ul>
+<p>(接口可以看做一种特殊的类)<br>
+        
+          <a class="article-more-a" href="/2019/03/09/面向对象的陷阱/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">疯狂Java：突破程序员基本功的16课</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/09/面向对象的陷阱/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
       <article id="post-流程控制陷阱" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -889,92 +973,6 @@
 
     
   
-    
-      <article id="post-SpringDemo项目中的技术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/27/SpringDemo项目中的技术/">SpringDemo项目中的技术</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/27/SpringDemo项目中的技术/" class="archive-article-date">
-  	<time datetime="2018-08-27T05:42:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><pre><code>- 整理一下在SpringDemo中用到的组件，还有碰到的问题
-</code></pre><h5 id="SpringMvc"><a href="#SpringMvc" class="headerlink" title="SpringMvc"></a>SpringMvc</h5><ul>
-<li>mvc的控制在servlet.xml文件中<ol>
-<li>将<code>servlet.xml</code>添加到<code>web.xml</code>的<code>servlet</code>的<code>dispatch</code>中，相当于转发请求</li>
-<li><code>interceptor</code>的拦截配置 </li>
-<li>jsp文件所在位置</li>
-<li>去掉静态文件的访问限制 <code>mvc:resource</code>配置</li>
-<li>上传文件时添加<code>multipartResolver</code> bean</li>
-<li>跨域的配置<code>cors</code></li>
-</ol>
-</li>
-<li>spring配置在<code>applicationContext.xml</code>文件中<ol>
-<li>将该配置添加到<code>web.xml</code>的<code>context-param</code>中 </li>
-<li>添加<code>properties</code>后要记得加到<code>propertyConfigurer</code>中</li>
-<li>要注入的<code>Component,Controller,Service,Dao</code>所在的文件夹要加到<code>component-scan</code>中</li>
-<li>controller中接收url,parameter和body中的参数，produce标识的是返回的类型</li>
-<li>上传文件时，在request中接收file时根据getFile(name)，这个name要和form中fileinput的名称相同，若是不同会接收不着</li>
-</ol>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/08/27/SpringDemo项目中的技术/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/27/SpringDemo项目中的技术/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-    
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1085,6 +1083,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">算法相关</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线程池</a>
               </li>
             
             <div class="clearfix"></div>
