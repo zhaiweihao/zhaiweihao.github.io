@@ -6,20 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>1.数组 | ace的个人小站</title>
+  <title>netty超时重连设置 | ace的个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java数组的初始化就是为数组对象的元素分配内存空间，并为每个数组元素指定初始值。  静态初始化 初始化时由程序员显示指定每个元素的初始值，由系统决定数组长度">
-<meta name="keywords" content="疯狂Java：突破程序员基本功的16课">
+  <meta name="description" content="客户端与服务器端连接可以分为长连接和短连接。 长连接可以保证数据的实时性，多适用于点对点，连接数较少的场景。长连接会占用服务器端较多资源。 连接数较多时可以选择短连接，发送数据完成后关闭连接。 或者在服务器端设置连接的超时时间，客户端在一段时间不发送数据后，服务器端断开连接，在下一次客户端和服务器发送数据时重新连接。 netty中为我们提供了ReadTimeoutHandler(int timeO">
+<meta name="keywords" content="netty">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1.数组">
-<meta property="og:url" content="http://yoursite.com/2019/02/12/java 数组/index.html">
+<meta property="og:title" content="netty超时重连设置">
+<meta property="og:url" content="http://yoursite.com/2019/04/04/netty超时重连设置/index.html">
 <meta property="og:site_name" content="ace的个人小站">
-<meta property="og:description" content="java数组的初始化就是为数组对象的元素分配内存空间，并为每个数组元素指定初始值。  静态初始化 初始化时由程序员显示指定每个元素的初始值，由系统决定数组长度">
+<meta property="og:description" content="客户端与服务器端连接可以分为长连接和短连接。 长连接可以保证数据的实时性，多适用于点对点，连接数较少的场景。长连接会占用服务器端较多资源。 连接数较多时可以选择短连接，发送数据完成后关闭连接。 或者在服务器端设置连接的超时时间，客户端在一段时间不发送数据后，服务器端断开连接，在下一次客户端和服务器发送数据时重新连接。 netty中为我们提供了ReadTimeoutHandler(int timeO">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-04T09:21:33.273Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/netty超时重连设置/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/netty超时重连设置/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/netty超时重连设置/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/netty超时重连设置/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/netty超时重连设置/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/netty超时重连设置/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/netty超时重连设置/7.png">
+<meta property="og:updated_time" content="2019-04-04T09:23:46.792Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1.数组">
-<meta name="twitter:description" content="java数组的初始化就是为数组对象的元素分配内存空间，并为每个数组元素指定初始值。  静态初始化 初始化时由程序员显示指定每个元素的初始值，由系统决定数组长度">
+<meta name="twitter:title" content="netty超时重连设置">
+<meta name="twitter:description" content="客户端与服务器端连接可以分为长连接和短连接。 长连接可以保证数据的实时性，多适用于点对点，连接数较少的场景。长连接会占用服务器端较多资源。 连接数较多时可以选择短连接，发送数据完成后关闭连接。 或者在服务器端设置连接的超时时间，客户端在一段时间不发送数据后，服务器端断开连接，在下一次客户端和服务器发送数据时重新连接。 netty中为我们提供了ReadTimeoutHandler(int timeO">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/04/netty超时重连设置/1.png">
   
     <link rel="alternative" href="/atom.xml" title="ace的个人小站" type="application/atom+xml">
   
@@ -143,41 +151,69 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-java 数组" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-netty超时重连设置" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      1.数组
+      netty超时重连设置
     </h1>
   
 
         
-        <a href="/2019/02/12/java 数组/" class="archive-article-date">
-  	<time datetime="2019-02-12T02:30:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-12</time>
+        <a href="/2019/04/04/netty超时重连设置/" class="archive-article-date">
+  	<time datetime="2019-04-04T07:04:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>java数组的初始化就是为数组对象的元素分配内存空间，并为每个数组元素指定初始值。</p>
+        <p>客户端与服务器端连接可以分为长连接和短连接。</p>
+<p>长连接可以保证数据的实时性，多适用于点对点，连接数较少的场景。长连接会占用服务器端较多资源。</p>
+<p>连接数较多时可以选择短连接，发送数据完成后关闭连接。</p>
+<p>或者在服务器端设置连接的超时时间，客户端在一段时间不发送数据后，服务器端断开连接，在下一次客户端和服务器发送数据时重新连接。</p>
+<p><code>netty</code>中为我们提供了<code>ReadTimeoutHandler(int timeOutSeconds)</code>来做超时检查，这个Handler可以放在客户端和服务器端。</p>
+<a id="more"></a>
+<blockquote>
+<p>这里需要注意，在客户端使用时，客户端在指定的时间内没有收到客户端的数据，将会主动关闭当前连接。在服务器端使用时，服务器端在指定的时间内没有收到客户端的数据，将会主动关闭客户端的连接。</p>
+</blockquote>
+<p>因为没有理解好上面说的，写测试代码时出了一个小问题，想了半天才想明白，后面会提到。</p>
+<p>我们可以实现这样的场景：客户端在5秒钟内没有发送过数据，服务器端关闭该客户端的连接，客户端在连接失效后重新连接。</p>
+<p>测试代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 服务器端，没有什么特殊，只是在初始化通道时添加了超时的ChannelHandler</span><br><span class="line">public class Server &#123;</span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        EventLoopGroup boss = new NioEventLoopGroup();</span><br><span class="line">        EventLoopGroup worker = new NioEventLoopGroup();</span><br><span class="line">        ServerBootstrap bootstrap = new ServerBootstrap();</span><br><span class="line">        bootstrap.group(boss,worker)</span><br><span class="line">                .channel(NioServerSocketChannel.class)</span><br><span class="line">                .childHandler(new ChannelInitializer&lt;SocketChannel&gt;() &#123;</span><br><span class="line">                    @Override</span><br><span class="line">                    protected void initChannel(SocketChannel socketChannel) &#123;</span><br><span class="line">                        socketChannel.pipeline().addLast(new StringDecoder());</span><br><span class="line">                        // 设置超时时间为5秒 socketChannel.pipeline().addLast(new ReadTimeoutHandler(5));</span><br><span class="line">                        socketChannel.pipeline().addLast(new ServerHandler());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">        ChannelFuture future = bootstrap.bind(8765).sync();</span><br><span class="line">        future.channel().closeFuture().sync();</span><br><span class="line"></span><br><span class="line">        boss.shutdownGracefully();</span><br><span class="line">        worker.shutdownGracefully();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class ServerHandler extends ChannelHandlerAdapter &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception &#123;</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">        // @0</span><br><span class="line">        //String sendData = &quot;server received &quot; + (String)msg;</span><br><span class="line">        //ByteBuf buf = Unpooled.copiedBuffer(sendData.getBytes());</span><br><span class="line">        //ctx.writeAndFlush(buf);</span><br><span class="line">        ReferenceCountUtil.release(msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception &#123;</span><br><span class="line">        cause.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">// 客户端代码，添加了发送数据前检查连接状态的逻辑，在连接失效后重新连接</span><br><span class="line">public class Client &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 使用静态内部类构造单例</span><br><span class="line">     */</span><br><span class="line">    public static class SingletonHolder&#123;</span><br><span class="line">        static final Client instance = new Client();</span><br><span class="line">    &#125;</span><br><span class="line">    public static Client getInstance()&#123;</span><br><span class="line">        return SingletonHolder.instance;</span><br><span class="line">    &#125;</span><br><span class="line">    private EventLoopGroup worker;</span><br><span class="line">    private Bootstrap bootstrap;</span><br><span class="line">    private ChannelFuture future;</span><br><span class="line">    private Client()&#123;</span><br><span class="line">        worker = new NioEventLoopGroup();</span><br><span class="line">        bootstrap = new Bootstrap();</span><br><span class="line">        bootstrap.group(worker)</span><br><span class="line">                .channel(NioSocketChannel.class)</span><br><span class="line">                .handler(new ChannelInitializer&lt;SocketChannel&gt;() &#123;</span><br><span class="line">                    @Override</span><br><span class="line">                    protected void initChannel(SocketChannel socketChannel) &#123;</span><br><span class="line">                        socketChannel.pipeline().addLast(new StringDecoder());</span><br><span class="line">                        socketChannel.pipeline().addLast(new ReadTimeoutHandler(5));</span><br><span class="line">                        socketChannel.pipeline().addLast(new ClientHandler());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 连接服务器端</span><br><span class="line">     */</span><br><span class="line">    public void connect()&#123;</span><br><span class="line">        try&#123;</span><br><span class="line">            this.future = bootstrap.connect(&quot;127.0.0.1&quot;,8765).sync();</span><br><span class="line">            System.out.println(&quot;connect success&quot;);</span><br><span class="line">        &#125;catch (Exception ex)&#123;</span><br><span class="line">            ex.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 断开连接后重新连接</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public ChannelFuture getChannelFuture()&#123;</span><br><span class="line">        if(future == null)&#123;</span><br><span class="line">            connect();</span><br><span class="line">        &#125;</span><br><span class="line">        if(!future.channel().isActive())&#123;</span><br><span class="line">            connect();</span><br><span class="line">        &#125;</span><br><span class="line">        return future;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        final Client client = Client.getInstance();</span><br><span class="line">        ChannelFuture future = client.getChannelFuture();</span><br><span class="line">        // @1</span><br><span class="line">        //TimeUnit.SECONDS.sleep(2);</span><br><span class="line">        for (int i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">            ByteBuf buf = Unpooled.copiedBuffer((&quot;ace say:&quot; + new Date().toString()).getBytes());</span><br><span class="line">            future.channel().writeAndFlush(buf);</span><br><span class="line">            // @2</span><br><span class="line">            TimeUnit.SECONDS.sleep(3);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        future.channel().closeFuture().sync();</span><br><span class="line"></span><br><span class="line">        new Thread(new Runnable() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void run() &#123;</span><br><span class="line">                try&#123;</span><br><span class="line">                    ChannelFuture cf = client.getChannelFuture();</span><br><span class="line">                    // 输出当前连接的状态</span><br><span class="line">                    System.out.println(&quot;isActive:&quot; + cf.channel().isActive());</span><br><span class="line">                    System.out.println(&quot;isOpen:&quot; + cf.channel().isOpen());</span><br><span class="line">                    ByteBuf bf = Unpooled.copiedBuffer((&quot;son thread data &quot; + new Date().toString()).getBytes());</span><br><span class="line">                    cf.channel().writeAndFlush(bf);</span><br><span class="line"></span><br><span class="line">                    cf.channel().closeFuture().sync();</span><br><span class="line">                    System.out.println(&quot;son thread is over &quot; + new Date().toString());</span><br><span class="line">                &#125;catch(InterruptedException ex)&#123;</span><br><span class="line">                    ex.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class ClientHandler extends ChannelHandlerAdapter &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception &#123;</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">        ReferenceCountUtil.release(msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception &#123;</span><br><span class="line">        cause.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>客户端每隔三秒给服务器端发送消息，发送五次。想要的效果是服务器端能收到五次消息，重连之后再收到一次客户端消息。但是这时的输出如下：</p>
 <ul>
-<li>静态初始化<ul>
-<li>初始化时由程序员显示指定每个元素的初始值，由系统决定数组长度<a id="more"></a></li>
-</ul>
-</li>
-<li>动态初始化<ul>
-<li>初始化时由程序员指定数组长度，系统为数组元素分配初始值</li>
-</ul>
+<li><p>服务器端输出</p>
+<img src="/2019/04/04/netty超时重连设置/1.png"></li>
+<li><p>客户端输出</p>
+<img src="/2019/04/04/netty超时重连设置/2.png">
 </li>
 </ul>
-<p>数组初始化完成，数组长度不能改变</p>
-<p>数组变量是引用型变量</p>
-<p>js中的数组为动态数组，可以改变长度</p>
-<p>分清数组变量和数组对象的区别</p>
+<p>查看代码，可以发现我在客户端和服务器端都添加了<code>ReadTimeOutHandler</code>。</p>
+<p>开始时，在<code>ServerHandler</code>的<code>@0</code>处我并没有给客户端发送数据，而是将接收的客户端消息打印之后直接释放。而客户端是每隔3秒发送一次数据，发送第三次数据时，已经是连接服务器端6秒之后了，而这时客户端还没有从服务器端接收到任何数据。</p>
+<p>结合上面提到的，便可以想到，是客户端在5秒之后没有接收到数据便主动断开连接了。因此是客户端catch了<code>ReadTimeoutException</code>，此时服务器端并没有catch异常。</p>
+<p>我们也可以验证一下我们的想法，将<code>@1</code>处的代码打开，先让客户端睡2秒，然后每个三秒发送一条消息。这时候查看输出可以发现，服务器端输出如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ace say:Thu Apr 04 15:15:33 CST 2019</span><br><span class="line">son thread data Thu Apr 04 15:15:48 CST 2019</span><br></pre></td></tr></table></figure></p>
+<p>因为<code>2s + 3s = 5s</code>，因此客户端只成功发送了第一条，发送第二条时就已经超时了。这就是上文提到的服务器端和客户端添加<code>ReadTimeOutHandler</code>的问题。</p>
+<p>我们可以打开<code>@0</code>处代码，接收客户端消息后也给客户端发送消息。这时候输出如下</p>
+<ul>
+<li><p>服务器端输出</p>
+<img src="/2019/04/04/netty超时重连设置/3.png"></li>
+<li><p>客户端输出</p>
+<img src="/2019/04/04/netty超时重连设置/4.png">
+</li>
+</ul>
+<p>查看输出可以发现服务器端和客户端都打印了超时的异常，多次运行会发现，异常有时候会打印有时候不打印。我的理解是，都打印应该是同时检测到对方关闭了连接。在超时后，若是连接已经关闭了，将忽略这个连接，不触发异常。</p>
+<p>可以看一下<code>ReadTimeOutHandler</code>的源码。</p>
+<img src="/2019/04/04/netty超时重连设置/5.png">
+<p>可以看到context内部维护着一个定时任务的线程池，轮询当前连接的状态，再根据设定的超时时间检测。</p>
+<img src="/2019/04/04/netty超时重连设置/6.png">
+<p>这里若是对方的连接已经关闭了，将不再抛出异常。</p>
+<img src="/2019/04/04/netty超时重连设置/7.png">
 
       
 
@@ -222,7 +258,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">疯狂Java：突破程序员基本功的16课</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">netty</a>
         		</li>
       		
 		</ul>
@@ -278,7 +314,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/12/java 数组/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/04/netty超时重连设置/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -292,18 +328,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/02/27/常见的集合分析/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          2.常见的集合分析
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/10/17/协同过滤算法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">推荐算法-协同过滤算法</div>
+    <a href="/2019/04/02/关于线程池的一些思考/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于线程池的一些思考</div>
       <i class="icon-circle-right"></i>
     </a>
   
