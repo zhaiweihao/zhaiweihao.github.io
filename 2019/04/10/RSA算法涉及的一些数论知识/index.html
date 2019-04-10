@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>5.表达式中的陷阱 | ace的个人小站</title>
+  <title>RSA算法涉及的一些数论知识 | ace的个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java创建对象的四种方式：  new 创建 Class对象的newInstance方法调用构造器创建 反序列化IO流 java对象的clone方法">
-<meta name="keywords" content="疯狂Java：突破程序员基本功的16课">
+  <meta name="description" content="这篇记录的是学习RSA算法之前需要的一些数论知识，包括一些数学概念和推倒过程，来源有百度和个人博客。 在CSDN看到一篇讲解的很详细的RSA系列文章，准备做一些记录和整理。">
+<meta name="keywords" content="加密解密">
 <meta property="og:type" content="article">
-<meta property="og:title" content="5.表达式中的陷阱">
-<meta property="og:url" content="http://yoursite.com/2019/03/05/表达式中的陷阱/index.html">
+<meta property="og:title" content="RSA算法涉及的一些数论知识">
+<meta property="og:url" content="http://yoursite.com/2019/04/10/RSA算法涉及的一些数论知识/index.html">
 <meta property="og:site_name" content="ace的个人小站">
-<meta property="og:description" content="java创建对象的四种方式：  new 创建 Class对象的newInstance方法调用构造器创建 反序列化IO流 java对象的clone方法">
+<meta property="og:description" content="这篇记录的是学习RSA算法之前需要的一些数论知识，包括一些数学概念和推倒过程，来源有百度和个人博客。 在CSDN看到一篇讲解的很详细的RSA系列文章，准备做一些记录和整理。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/03/05/表达式中的陷阱/picture/1.png">
-<meta property="og:updated_time" content="2019-03-09T04:35:33.615Z">
+<meta property="og:updated_time" content="2019-04-10T10:07:53.280Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="5.表达式中的陷阱">
-<meta name="twitter:description" content="java创建对象的四种方式：  new 创建 Class对象的newInstance方法调用构造器创建 反序列化IO流 java对象的clone方法">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/05/表达式中的陷阱/picture/1.png">
+<meta name="twitter:title" content="RSA算法涉及的一些数论知识">
+<meta name="twitter:description" content="这篇记录的是学习RSA算法之前需要的一些数论知识，包括一些数学概念和推倒过程，来源有百度和个人博客。 在CSDN看到一篇讲解的很详细的RSA系列文章，准备做一些记录和整理。">
   
     <link rel="alternative" href="/atom.xml" title="ace的个人小站" type="application/atom+xml">
   
@@ -145,51 +143,101 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-表达式中的陷阱" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-RSA算法涉及的一些数论知识" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      5.表达式中的陷阱
+      RSA算法涉及的一些数论知识
     </h1>
   
 
         
-        <a href="/2019/03/05/表达式中的陷阱/" class="archive-article-date">
-  	<time datetime="2019-03-05T14:08:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-05</time>
+        <a href="/2019/04/10/RSA算法涉及的一些数论知识/" class="archive-article-date">
+  	<time datetime="2019-04-10T09:51:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>java创建对象的四种方式：</p>
+        <p>这篇记录的是学习RSA算法之前需要的一些数论知识，包括一些数学概念和推倒过程，来源有百度和个人博客。</p>
+<p>在CSDN看到一篇<a href="https://blog.csdn.net/u014044812/article/details/80782448" target="_blank" rel="noopener">讲解的很详细的RSA系列文章</a>，准备做一些记录和整理。</p>
+<a id="more"></a>
+<h5 id="一些数学概念"><a href="#一些数学概念" class="headerlink" title="一些数学概念"></a>一些数学概念</h5><ul>
+<li>质数：大于1的自然数中，除了1和它本身外不再有其他因数。</li>
+<li>质因数：能整除给定正整数的质数。例如8只有一个质因数为2</li>
+<li>互质整数：公约数只有1的两个整数，叫做互质整数，关系为互质关系。<blockquote>
 <ul>
-<li>new 创建</li>
-<li>Class对象的newInstance方法调用构造器创建</li>
-<li>反序列化IO流</li>
-<li>java对象的clone方法<a id="more"></a>
-<h5 id="字符串问题"><a href="#字符串问题" class="headerlink" title="字符串问题"></a>字符串问题</h5><h6 id="jvm中对字符串的处理"><a href="#jvm中对字符串的处理" class="headerlink" title="jvm中对字符串的处理"></a>jvm中对字符串的处理</h6><code>String str=new String(&quot;ace&quot;);</code>这句代码创建了两个String对象。</li>
+<li>任意两个质数构成互质关系</li>
+<li>1和任意自然数都是互质关系</li>
+<li>一个质数，另一个数不是它的倍数，这两个数是互质关系</li>
+<li>两个相邻的自然数是互质关系</li>
+<li>相邻的两个奇数是互质关系</li>
+<li>较大数为质数的两个数为互质关系</li>
+<li>另外还有两个都为合数时的判断…</li>
 </ul>
-<p>jvm若是在编译期能确定字符串变量的值，将会直接使用字符串池中的字符串。(若是使用了变量或者方法，将不能在编译期间确定)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str4=&quot;ace&quot;+&quot;test&quot;;</span><br><span class="line">System.out.println(str4==&quot;acetest&quot;);</span><br><span class="line"></span><br><span class="line">true</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String str1=&quot;ace&quot;;</span><br><span class="line">String str4=str1+&quot;test&quot;;</span><br><span class="line">System.out.println(str4==&quot;acetest&quot;);</span><br><span class="line"></span><br><span class="line">false</span><br></pre></td></tr></table></figure>
-<p>若是使用了宏替换，即用final修饰<code>str1</code>，将会把<code>str1</code>变量在编译期就视为字符串常量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">final String str1=&quot;ace&quot;;</span><br><span class="line">String str4=str1+&quot;test&quot;;</span><br><span class="line">System.out.println(str4==&quot;acetest&quot;);</span><br><span class="line"></span><br><span class="line">true</span><br></pre></td></tr></table></figure></p>
-<p><code>String str=&quot;ace&quot;+&quot;test&quot;+&quot;123&quot;</code>这句代码只创建了一个字符串，因为jvm能在编译期确定str的值。</p>
-<p>出于性能考虑，使用字符串或基本类型包装实例时尽量直接使用直接量。不要通过new String，new Integer等方法。</p>
-<h6 id="字符串不可变"><a href="#字符串不可变" class="headerlink" title="字符串不可变"></a>字符串不可变</h6><p>这也是java内存泄漏的一个方面</p>
-<p>String是不可变类，不可变类本来就线程安全，所以直接使用StringBuilder，不必使用StringBuffer。</p>
-<h6 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h6><p><code>==</code>比较的是内存地址，内存地址相同两个字符串肯定相同</p>
-<p><code>equals</code>比较的是字符序列，即字符串的内容</p>
-<p><code>compareTo</code>是将两个字符串左对齐，然后逐个比较字符</p>
-<h5 id="表达式类型陷阱"><a href="#表达式类型陷阱" class="headerlink" title="表达式类型陷阱"></a>表达式类型陷阱</h5><p>强类型语言：1.变量使用前必须先声明 2.一旦变量类型确定则不能更改</p>
-<h6 id="表达式类型自动提升"><a href="#表达式类型自动提升" class="headerlink" title="表达式类型自动提升"></a>表达式类型自动提升</h6><p><img src="./picture/1.png" alt="类型自动提升"></p>
-<p>复合赋值运算符有一个隐式转换。如果值类型比变量类型要大，会进行强制转换，可以会发生截断。</p>
-<h5 id="转义字符的问题"><a href="#转义字符的问题" class="headerlink" title="转义字符的问题"></a>转义字符的问题</h5><p>使用转义字符要小心，放在注释中更要注意<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public void test()&#123;</span><br><span class="line">    //\u000a 代表一个换行符</span><br><span class="line">    char c=0x000a;</span><br><span class="line">    System.out.println(c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>会出现编译问题，默认换行了</p>
-<h5 id="泛型的擦除"><a href="#泛型的擦除" class="headerlink" title="泛型的擦除"></a>泛型的擦除</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class Apple&lt;T extends Number&gt;&#123;</span><br><span class="line">    public  List&lt;String&gt; getList()&#123;</span><br><span class="line">        return new List&lt;String&gt;&#123;&quot;ace&quot;,&quot;test&quot;&#125;;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br><span class="line">public class Test&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        Apple apple=new Apple&lt;Integer&gt;();</span><br><span class="line">        System.out.println(apple.getList());</span><br><span class="line">        for (String item : apple.getList())&#123; //这里将编译错误，需要换为Object</span><br><span class="line">            System.out.println(item);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="正则表达式的陷阱"><a href="#正则表达式的陷阱" class="headerlink" title="正则表达式的陷阱"></a>正则表达式的陷阱</h5><p>String的Split方法的参数为正则表达式，若是直接使用<code>.</code>作为参数，它将匹配任意字符。可以使用<code>\\</code>来转义</p>
+</blockquote>
+</li>
+<li><p>欧拉函数</p>
+<ul>
+<li>任意给定的正整数n，小于等于n的正整数中，与n互质整数的个数计作φ(n)，φ(1) = 1，n为质数时，φ(n) = n-1</li>
+<li><p>如果n是某个质数的某个次方，即n = p^k^,则有φ(p^k^) = p^k^-p^k-1^</p>
+<blockquote>
+<p>证明：只有当一个数的质因数不包含p时，即为p的倍数时，才与n互质。质因数包含p的整数个数为p^k-1^(因为小于等于p^k^的数为 1*p,2*p,3*p,…,p^k-2^*p,p^k-1^*p，p^k-1^*p就等于p^k^)，即φ(p^k^) = p^k^-p^k-1^ = (p-1)p^k-1^ = p^k^(1-1/p)</p>
+</blockquote>
+</li>
+<li><p>若n可以分解为两个互质整数之积，即 n = p*q，则有 φ(n) = φ(p*q) = φ(p)*φ(q)</p>
+</li>
+<li>任意正整数 n，都有 φ(n) = n(1-1/p1)(1-1/p2)(1-1/p3)…(1-1/pr)。  p1,p2…pr为n的质因数，<blockquote>
+<ul>
+<li>推倒过程如下</li>
+<li>任意正整数都可以计作 n = (p1^k1^)(p2^k2^)(p3^k3^)…(pr^kr^)。</li>
+<li>根据第三条结论，可以得到 φ(n) = φ(p1^k1^)φ(p2^k2^)φ(p3^k3^)φ(p4^k4^)…φ(pr^kr^) </li>
+<li>根据第二条结论，又可得φ(n) =  p1^k1^p2^k2^p3^k3^…pr^kr^(1-1/p1)(1-1/p2)(1-1/p3)…(1-1/pr) </li>
+<li>最后可得<br>φ(n) = n(1-1/p1)(1-1/p2)(1-1/p3)…(1-1/pr)</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>欧拉定理</p>
+<ul>
+<li>若n和a为正整数，且n,a互质，则有 a^φ(n)^ ≡ 1(mod n)</li>
+<li><p>≡ 这里为同余符号，上面定理读作a^φ(n)^ 同余于1取模n</p>
+<blockquote>
+<p>可以使用欧拉定理简化一些运算。例如计算7的222次方的个位数。</p>
+</blockquote>
+<blockquote>
+<p>计算个位数即与10取模，因为7和10互质，7^222^ = (7^4^)^55^*7^2^，且φ(10) = 4。由欧拉定理可知7^φ(10)^ = 1(mod 10) 。即 7^4^ = 1(mod 10)。也就是7^4^的个位数为1，那么(7^4^)^55^的个位数肯定也为1，7^2^ = 49，可知7^222^ ≡ 9(mod 10)</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>模反元素：如果a和n互质，那么一定存在b，使得ab-1可以被n整除，即ab对n取模为1，这时b叫做a的模反元素。模反元素不只1个，b+kn都是a的模反元素。</p>
+<blockquote>
+<p>可以使用欧拉定理推倒，因为a^φ(n)^=a * a^φ(n)-1^ ≡ 1，所以a^φ(n)-1^为a对模数n的模反元素。</p>
+</blockquote>
+</li>
+<li><p>欧几里得算法：用来求两个正整数的最大公约数，又称辗转相除法 gcd(a,b) = gcd(b,a mod b)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int divisor(int m,int n)&#123;</span><br><span class="line">  if (m % n == 0) &#123;</span><br><span class="line">      return n;</span><br><span class="line">  &#125;</span><br><span class="line">  else &#123;</span><br><span class="line">      return divisor(n,m % n);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>例如求1997和615的最大公约数</p>
+<ul>
+<li>1997 = 3*615 + 152</li>
+<li>615 = 4*152 + 7</li>
+<li>152 = 21*7 + 5</li>
+<li>7 = 1*5 + 2</li>
+<li>5 = 2*2 + 1</li>
+<li>2 = 2*1 + 0</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>下面一篇是记录RSA算法的仔细推倒过程，文章开头的链接文章讲述的更为细致，强烈推荐。</p>
+<p><em>ps 记录一下，在hexo中使用超链接时，括号内的连接不要加引号，否则会被当做本站连接</em></p>
 
       
 
@@ -234,7 +282,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">疯狂Java：突破程序员基本功的16课</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">加密解密</a>
         		</li>
       		
 		</ul>
@@ -290,7 +338,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/05/表达式中的陷阱/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/10/RSA算法涉及的一些数论知识/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -304,18 +352,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/09/流程控制陷阱/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          6.流程控制陷阱
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/02/jvm内存回收/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">4.jvm内存回收</div>
+    <a href="/2019/04/04/netty超时重连设置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">netty超时重连设置</div>
       <i class="icon-circle-right"></i>
     </a>
   

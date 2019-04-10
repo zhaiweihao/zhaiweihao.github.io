@@ -6,22 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>5.表达式中的陷阱 | ace的个人小站</title>
+  <title>Tag: 加密解密 | ace的个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java创建对象的四种方式：  new 创建 Class对象的newInstance方法调用构造器创建 反序列化IO流 java对象的clone方法">
-<meta name="keywords" content="疯狂Java：突破程序员基本功的16课">
-<meta property="og:type" content="article">
-<meta property="og:title" content="5.表达式中的陷阱">
-<meta property="og:url" content="http://yoursite.com/2019/03/05/表达式中的陷阱/index.html">
+  <meta name="keywords" content="ace">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ace的个人小站">
+<meta property="og:url" content="http://yoursite.com/tags/加密解密/index.html">
 <meta property="og:site_name" content="ace的个人小站">
-<meta property="og:description" content="java创建对象的四种方式：  new 创建 Class对象的newInstance方法调用构造器创建 反序列化IO流 java对象的clone方法">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/03/05/表达式中的陷阱/picture/1.png">
-<meta property="og:updated_time" content="2019-03-09T04:35:33.615Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="5.表达式中的陷阱">
-<meta name="twitter:description" content="java创建对象的四种方式：  new 创建 Class对象的newInstance方法调用构造器创建 反序列化IO流 java对象的clone方法">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/05/表达式中的陷阱/picture/1.png">
+<meta name="twitter:title" content="ace的个人小站">
   
     <link rel="alternative" href="/atom.xml" title="ace的个人小站" type="application/atom+xml">
   
@@ -145,210 +139,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-表达式中的陷阱" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      5.表达式中的陷阱
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/04/10/RSA算法涉及的一些数论知识/" class="archive-article-date">
+  	<time datetime="2019-04-10T09:51:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/04/10/RSA算法涉及的一些数论知识/">RSA算法涉及的一些数论知识</a>
     </h1>
   
 
-        
-        <a href="/2019/03/05/表达式中的陷阱/" class="archive-article-date">
-  	<time datetime="2019-03-05T14:08:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>java创建对象的四种方式：</p>
-<ul>
-<li>new 创建</li>
-<li>Class对象的newInstance方法调用构造器创建</li>
-<li>反序列化IO流</li>
-<li>java对象的clone方法<a id="more"></a>
-<h5 id="字符串问题"><a href="#字符串问题" class="headerlink" title="字符串问题"></a>字符串问题</h5><h6 id="jvm中对字符串的处理"><a href="#jvm中对字符串的处理" class="headerlink" title="jvm中对字符串的处理"></a>jvm中对字符串的处理</h6><code>String str=new String(&quot;ace&quot;);</code>这句代码创建了两个String对象。</li>
-</ul>
-<p>jvm若是在编译期能确定字符串变量的值，将会直接使用字符串池中的字符串。(若是使用了变量或者方法，将不能在编译期间确定)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str4=&quot;ace&quot;+&quot;test&quot;;</span><br><span class="line">System.out.println(str4==&quot;acetest&quot;);</span><br><span class="line"></span><br><span class="line">true</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String str1=&quot;ace&quot;;</span><br><span class="line">String str4=str1+&quot;test&quot;;</span><br><span class="line">System.out.println(str4==&quot;acetest&quot;);</span><br><span class="line"></span><br><span class="line">false</span><br></pre></td></tr></table></figure>
-<p>若是使用了宏替换，即用final修饰<code>str1</code>，将会把<code>str1</code>变量在编译期就视为字符串常量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">final String str1=&quot;ace&quot;;</span><br><span class="line">String str4=str1+&quot;test&quot;;</span><br><span class="line">System.out.println(str4==&quot;acetest&quot;);</span><br><span class="line"></span><br><span class="line">true</span><br></pre></td></tr></table></figure></p>
-<p><code>String str=&quot;ace&quot;+&quot;test&quot;+&quot;123&quot;</code>这句代码只创建了一个字符串，因为jvm能在编译期确定str的值。</p>
-<p>出于性能考虑，使用字符串或基本类型包装实例时尽量直接使用直接量。不要通过new String，new Integer等方法。</p>
-<h6 id="字符串不可变"><a href="#字符串不可变" class="headerlink" title="字符串不可变"></a>字符串不可变</h6><p>这也是java内存泄漏的一个方面</p>
-<p>String是不可变类，不可变类本来就线程安全，所以直接使用StringBuilder，不必使用StringBuffer。</p>
-<h6 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h6><p><code>==</code>比较的是内存地址，内存地址相同两个字符串肯定相同</p>
-<p><code>equals</code>比较的是字符序列，即字符串的内容</p>
-<p><code>compareTo</code>是将两个字符串左对齐，然后逐个比较字符</p>
-<h5 id="表达式类型陷阱"><a href="#表达式类型陷阱" class="headerlink" title="表达式类型陷阱"></a>表达式类型陷阱</h5><p>强类型语言：1.变量使用前必须先声明 2.一旦变量类型确定则不能更改</p>
-<h6 id="表达式类型自动提升"><a href="#表达式类型自动提升" class="headerlink" title="表达式类型自动提升"></a>表达式类型自动提升</h6><p><img src="./picture/1.png" alt="类型自动提升"></p>
-<p>复合赋值运算符有一个隐式转换。如果值类型比变量类型要大，会进行强制转换，可以会发生截断。</p>
-<h5 id="转义字符的问题"><a href="#转义字符的问题" class="headerlink" title="转义字符的问题"></a>转义字符的问题</h5><p>使用转义字符要小心，放在注释中更要注意<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public void test()&#123;</span><br><span class="line">    //\u000a 代表一个换行符</span><br><span class="line">    char c=0x000a;</span><br><span class="line">    System.out.println(c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>会出现编译问题，默认换行了</p>
-<h5 id="泛型的擦除"><a href="#泛型的擦除" class="headerlink" title="泛型的擦除"></a>泛型的擦除</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class Apple&lt;T extends Number&gt;&#123;</span><br><span class="line">    public  List&lt;String&gt; getList()&#123;</span><br><span class="line">        return new List&lt;String&gt;&#123;&quot;ace&quot;,&quot;test&quot;&#125;;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br><span class="line">public class Test&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        Apple apple=new Apple&lt;Integer&gt;();</span><br><span class="line">        System.out.println(apple.getList());</span><br><span class="line">        for (String item : apple.getList())&#123; //这里将编译错误，需要换为Object</span><br><span class="line">            System.out.println(item);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="正则表达式的陷阱"><a href="#正则表达式的陷阱" class="headerlink" title="正则表达式的陷阱"></a>正则表达式的陷阱</h5><p>String的Split方法的参数为正则表达式，若是直接使用<code>.</code>作为参数，它将匹配任意字符。可以使用<code>\\</code>来转义</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>赠一杯咖啡<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/alipay.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/wechat.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">疯狂Java：突破程序员基本功的16课</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">加密解密</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/05/表达式中的陷阱/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/03/09/流程控制陷阱/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          6.流程控制陷阱
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/03/02/jvm内存回收/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">4.jvm内存回收</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -371,9 +215,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
