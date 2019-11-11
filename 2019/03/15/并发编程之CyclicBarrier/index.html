@@ -17,7 +17,7 @@
 <meta property="og:description" content="今天复习java看到了CyclicBarrier，它是用来挂起当前线程，直至所有线程都到达barrier状态再同时执行后续任务。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/03/15/并发编程之CyclicBarrier/1.jpg">
-<meta property="og:updated_time" content="2019-03-16T04:20:10.206Z">
+<meta property="og:updated_time" content="2019-11-08T09:46:32.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="并发编程之CyclicBarrier">
 <meta name="twitter:description" content="今天复习java看到了CyclicBarrier，它是用来挂起当前线程，直至所有线程都到达barrier状态再同时执行后续任务。">
@@ -167,7 +167,7 @@
       
         <img src="/2019/03/15/并发编程之CyclicBarrier/1.jpg" title="top picture">
 <!--![准备](./picture/1.jpg)-->
-<p>今天复习java看到了CyclicBarrier，它是用来挂起当前线程，直至所有线程都到达barrier状态再同时执行后续任务。<br><a id="more"></a><br>我突然间想起了一个场景，就是开篇图所示。当王者荣耀玩家开始游戏进入准备队列的时候，只有当十个人都点了准备按钮才会进入到选英雄的界面。这个场景就可以使用CyclicBarrier来实现。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">import java.util.concurrent.BrokenBarrierException;</span><br><span class="line">import java.util.concurrent.CyclicBarrier;</span><br><span class="line"></span><br><span class="line">public class CyclicBarrierDemo &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        CyclicBarrier cyclicBarrier = new CyclicBarrier(10);</span><br><span class="line">        for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">            new Hero(cyclicBarrier).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static class Hero extends Thread &#123;</span><br><span class="line">        private CyclicBarrier cyclicBarrier;</span><br><span class="line"></span><br><span class="line">        public Hero(CyclicBarrier cyclicBarrier) &#123;</span><br><span class="line">            this.cyclicBarrier = cyclicBarrier;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                System.out.println(&quot;请点击准备按钮&quot;);</span><br><span class="line">                Thread.sleep(5 * 1000);</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            try &#123;</span><br><span class="line">                this.cyclicBarrier.await();</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125; catch (BrokenBarrierException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(&quot;进入选择英雄页面...&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>今天复习java看到了CyclicBarrier，它是用来挂起当前线程，直至所有线程都到达barrier状态再同时执行后续任务。<br><a id="more"></a><br>我突然间想起了一个场景，就是开篇图所示。当王者荣耀玩家开始游戏进入准备队列的时候，只有当十个人都点了准备按钮才会进入到选英雄的界面。这个场景就可以使用CyclicBarrier来实现。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.BrokenBarrierException;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.CyclicBarrier;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CyclicBarrierDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        CyclicBarrier cyclicBarrier = <span class="keyword">new</span> CyclicBarrier(<span class="number">10</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> Hero(cyclicBarrier).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Hero</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> CyclicBarrier cyclicBarrier;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Hero</span><span class="params">(CyclicBarrier cyclicBarrier)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.cyclicBarrier = cyclicBarrier;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">"请点击准备按钮"</span>);</span><br><span class="line">                Thread.sleep(<span class="number">5</span> * <span class="number">1000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">this</span>.cyclicBarrier.await();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (BrokenBarrierException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"进入选择英雄页面..."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">请点击准备按钮</span><br><span class="line">请点击准备按钮</span><br><span class="line">请点击准备按钮</span><br><span class="line">请点击准备按钮</span><br><span class="line">请点击准备按钮</span><br><span class="line">请点击准备按钮</span><br><span class="line">请点击准备按钮</span><br><span class="line">请点击准备按钮</span><br><span class="line">请点击准备按钮</span><br><span class="line">请点击准备按钮</span><br><span class="line">进入选择英雄页面...</span><br><span class="line">进入选择英雄页面...</span><br><span class="line">进入选择英雄页面...</span><br><span class="line">进入选择英雄页面...</span><br><span class="line">进入选择英雄页面...</span><br><span class="line">进入选择英雄页面...</span><br><span class="line">进入选择英雄页面...</span><br><span class="line">进入选择英雄页面...</span><br><span class="line">进入选择英雄页面...</span><br><span class="line">进入选择英雄页面...</span><br></pre></td></tr></table></figure>
 <p>因为自己并没有开发过游戏，只是根据场景猜测，可能真实的游戏开发和自己所想大相径庭，这里只是模拟一下CyclicBarrier的用法，加强记忆。</p>
 <p>代码要多写，游戏要少玩。</p>
@@ -443,11 +443,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">加密解密</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">疯狂Java：突破程序员基本功的16课</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -455,7 +451,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">服务器端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">加密解密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">html css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">疯狂Java：突破程序员基本功的16课</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vue css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -463,11 +483,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">线程池</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">netty</a>
               </li>
             
             <div class="clearfix"></div>

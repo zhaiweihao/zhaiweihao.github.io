@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="ace的个人小站">
 <meta property="og:description" content="switchswitch 的case语句要记得加break switch表达式的类型只有：byte,short,int,char,Enum">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-09T04:30:57.229Z">
+<meta property="og:updated_time" content="2019-11-08T09:48:27.777Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="6.流程控制陷阱">
 <meta name="twitter:description" content="switchswitch 的case语句要记得加break switch表达式的类型只有：byte,short,int,char,Enum">
@@ -165,7 +165,7 @@
       
         <h6 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h6><p>switch 的case语句要记得加break</p>
 <p>switch表达式的类型只有：byte,short,int,char,Enum<br><a id="more"></a></p>
-<h6 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h6><p>如果程序要使用循环来重复定义局部变量，这条局部变量要放在花括号内才有效。下面代码会出现编译性错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class Cat&#123;</span><br><span class="line">    public static int instanceNumber;</span><br><span class="line">    public Cat()&#123;</span><br><span class="line">        instanceNumber++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class CatTest&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        for(int i=0;i&lt;10;i++)</span><br><span class="line">            Cat cat=new Cat();</span><br><span class="line">        System.out.println(Cat.instanceNumber());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h6 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h6><p>如果程序要使用循环来重复定义局部变量，这条局部变量要放在花括号内才有效。下面代码会出现编译性错误<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> instanceNumber;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">()</span></span>&#123;</span><br><span class="line">        instanceNumber++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CatTest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">            Cat cat=<span class="keyword">new</span> Cat();</span><br><span class="line">        System.out.println(Cat.instanceNumber());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>必须为<code>Cat cat=new Cat();</code>加上花括号</p>
 <p>for循环中有且只能有两个分号，但是可以在第一个分号前定义多个变量，但是数据类型是相同的。第二个分号后可以跟多个语句，用逗号分隔，不能用分号分隔。</p>
 <p>避免修改循环计数器的值。</p>
@@ -443,11 +443,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">加密解密</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">疯狂Java：突破程序员基本功的16课</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -455,7 +451,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">服务器端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">加密解密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">html css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">疯狂Java：突破程序员基本功的16课</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vue css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -463,11 +483,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">线程池</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">netty</a>
               </li>
             
             <div class="clearfix"></div>

@@ -17,7 +17,7 @@
 <meta property="og:description" content="我们在写博客时，可能有些文章不想展示在主页，这时候我们可以这样做：">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/03/16/在Yilia主题的博客主页隐藏特定的文章/1.png">
-<meta property="og:updated_time" content="2019-03-16T05:22:12.545Z">
+<meta property="og:updated_time" content="2019-11-08T09:51:00.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Yilia主题的博客主页隐藏特定的文章">
 <meta name="twitter:description" content="我们在写博客时，可能有些文章不想展示在主页，这时候我们可以这样做：">
@@ -168,8 +168,8 @@
         <p>我们在写博客时，可能有些文章不想展示在主页，这时候我们可以这样做：<br><a id="more"></a><br>新创建的文章加一个参数，例如<code>notshow</code>，如下所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 在Yilia主题的博客主页隐藏特定的文章</span><br><span class="line">date: 2019-03-16 13:09:31</span><br><span class="line">tags:</span><br><span class="line">notshow: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
 <p>接下来需要修改一些主题的代码。</p>
 <p>我使用的是Yilia主题(顺便吐槽一下，Litten已经弃坑了吗，攒了那么多issue不关，看来鹅厂的日子也是累啊)，打开themes/yilia/layout/_partial/archive.ejs文件，如下图所示<br><img src="/2019/03/16/在Yilia主题的博客主页隐藏特定的文章/1.png" title="修改文件"></p>
-<p>找到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% page.posts.each(function(post)&#123; %&gt;</span><br><span class="line">  &lt;%- partial(&apos;article&apos;, &#123;post: post, index: true&#125;) %&gt;</span><br><span class="line">&lt;% &#125;) %&gt;</span><br></pre></td></tr></table></figure></p>
-<p>将其修改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;% page.posts.each(function(post)&#123; %&gt;</span><br><span class="line">  &lt;% if (post.notshow != true)&#123; %&gt;</span><br><span class="line">    &lt;%- partial(&apos;article&apos;, &#123;post: post, index: true&#125;) %&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line">&lt;% &#125;) %&gt;</span><br></pre></td></tr></table></figure></p>
+<p>找到<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% page.posts.each(<span class="function"><span class="keyword">function</span>(<span class="params">post</span>)</span>&#123; %&gt;</span><br><span class="line">  &lt;%- partial(<span class="string">'article'</span>, &#123;<span class="attr">post</span>: post, <span class="attr">index</span>: <span class="literal">true</span>&#125;) %&gt;</span><br><span class="line">&lt;% &#125;) %&gt;</span><br></pre></td></tr></table></figure></p>
+<p>将其修改为<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;% page.posts.each(<span class="function"><span class="keyword">function</span>(<span class="params">post</span>)</span>&#123; %&gt;</span><br><span class="line">  &lt;% <span class="keyword">if</span> (post.notshow != <span class="literal">true</span>)&#123; %&gt;</span><br><span class="line">    &lt;%- partial(<span class="string">'article'</span>, &#123;<span class="attr">post</span>: post, <span class="attr">index</span>: <span class="literal">true</span>&#125;) %&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line">&lt;% &#125;) %&gt;</span><br></pre></td></tr></table></figure></p>
 <p>修改完之后重新<code>hexo g</code>生成项目，使用浏览器查看可以发现这篇文章将不在主页显示。</p>
 
       
@@ -432,11 +432,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">加密解密</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">疯狂Java：突破程序员基本功的16课</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -444,7 +440,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">服务器端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">加密解密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">html css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">疯狂Java：突破程序员基本功的16课</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vue css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -452,11 +472,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">线程池</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">netty</a>
               </li>
             
             <div class="clearfix"></div>
