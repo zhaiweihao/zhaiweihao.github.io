@@ -142,6 +142,177 @@
             
   
     
+      <article id="post-常见的几种排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/27/常见的几种排序/">常见的几种排序</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/27/常见的几种排序/" class="archive-article-date">
+  	<time datetime="2018-08-27T06:52:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h5><ul>
+<li>取数组第一个元素为k</li>
+<li>开始l=0;h=length-1</li>
+<li>h–获得比k小的值，交换两个元素</li>
+<li>l++获得比k大的值，交换两个元素</li>
+<li>h-1&lt;=l时结束一次排序</li>
+<li>每次排序的结果是以k分为两部分，左边的数据全部比k小，右边的数据全部比k大</li>
+<li>递归k两边的两个数组</li>
+<li>跳出条件是分裂的数组只有一个数据</li>
+<li>示例情况<ul>
+<li>6 5 4 3 2 1</li>
+<li>第一次排序</li>
+<li>1 5 4 3 2 6</li>
+<li>第二次排序</li>
+<li>1 5 4 3 2 6</li>
+<li>第三次排序</li>
+<li>1 2 4 3 5 6</li>
+<li>第四次排序</li>
+<li>1 2 4 3 5 6</li>
+<li>第五次排序</li>
+<li>1 2 3 4 5 6</li>
+<li>第六次排序</li>
+<li>1 2 3 4 5 6</li>
+</ul>
+</li>
+<li>时间复杂度为O(nlogn)</li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/08/27/常见的几种排序/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/27/常见的几种排序/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
+      <article id="post-centos配置java环境的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/27/centos配置java环境的问题/">centos配置java环境的问题</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/27/centos配置java环境的问题/" class="archive-article-date">
+  	<time datetime="2018-08-27T05:45:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="打开ssh服务"><a href="#打开ssh服务" class="headerlink" title="打开ssh服务"></a>打开ssh服务</h5><ul>
+<li>更改<code>/etc/ssh/sshd_config</code>(修改配置文件需要切换到root用户)，打开端口号等选项，打开<code>PermitRootLogin</code>选项，保存文件退出</li>
+<li>开启sshd服务<code>sudo service sshd start</code></li>
+<li><code>ps -e|grep sshd</code>可查看是否开启sshd服务</li>
+</ul>
+<h5 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h5><ul>
+<li><p>可根据java官网提供的jdk.tar.gz文件的路径使用<code>wget</code>安装，类似下面语句</p>
+  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-cookie --header <span class="string">"Cookie: s_cc=true; oraclelicense=accept-securebackup-cookie; s_nr=1407131063040; gpw_e24=http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html; s_sq=%5B%5BB%5D%5D"</span> http://download.oracle.com/otn-pub/java/jdk/10.0.1+10/fb4372174a714e6b8c52526dc134031e/jdk-10.0.1_linux-x64_bin.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>centos中有自带的jdk为低版本，暂时没删除，不知道是否有问题</p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/08/27/centos配置java环境的问题/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/27/centos配置java环境的问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
       <article id="post-SpringDemo项目中的技术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -310,13 +481,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/14/hello-world/">Hello World</a>
+      <a class="article-title" href="/2015/04/21/hello-world/">Hello World</a>
     </h1>
   
 
         
-        <a href="/2018/08/14/hello-world/" class="archive-article-date">
-  	<time datetime="2018-08-14T06:09:50.829Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-14</time>
+        <a href="/2015/04/21/hello-world/" class="archive-article-date">
+  	<time datetime="2015-04-21T07:13:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-04-21</time>
 </a>
         
       </header>
@@ -326,7 +497,7 @@
         <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
         
-          <a class="article-more-a" href="/2018/08/14/hello-world/#more">more >></a>
+          <a class="article-more-a" href="/2015/04/21/hello-world/#more">more >></a>
         
       
 
@@ -339,7 +510,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/14/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2015/04/21/hello-world/">展开全文 >></a>
         </p>
       
 
@@ -504,15 +675,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">html css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">疯狂Java：突破程序员基本功的16课</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">html css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,7 +687,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vue css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,7 +707,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,11 +719,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线程池</a>
+                <a href="javascript:void(0)" class="js-tag color1">netty</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
+                <a href="javascript:void(0)" class="js-tag color4">线程池</a>
               </li>
             
             <div class="clearfix"></div>
