@@ -36,7 +36,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/11/21/彻底理解红黑树/rb18.png">
 <meta property="og:image" content="http://yoursite.com/2019/11/21/彻底理解红黑树/rb19.png">
 <meta property="og:image" content="http://yoursite.com/2019/11/21/彻底理解红黑树/rbdelete.png">
-<meta property="og:updated_time" content="2019-11-26T02:16:12.290Z">
+<meta property="og:updated_time" content="2019-11-26T03:00:11.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="彻底理解红黑树">
 <meta name="twitter:description" content="二叉查找树又名二叉排序树。它的左子树的节点都小于根节点，右子树的节点都大于根节点，且左右子树都为二叉排序树。查找时采用二分查找的方法，时间复杂度最小为O(lgn)。这种树存在一个问题，可能会造成单侧子树过高，极端情况下只有单侧子树，成为线性查找。因此就产生了基于二叉排序树的性能更高的树，红黑树就是其中一种。">
@@ -241,10 +241,11 @@
 </ul>
 <h5 id="二叉树的删除"><a href="#二叉树的删除" class="headerlink" title="二叉树的删除"></a>二叉树的删除</h5><p>二叉树查找后继节点的方法：将所有节点投影到X轴，该节点前后的节点即为对应的前驱和后继节点。</p>
 <p>二叉树删除节点是寻找到被删除节点的后继节点，将后继节点视作替代节点。对于树的结构本身，相当于删除替代节点。</p>
-<p>替代一点一定在树末。</p>
+<p>替代结点一定在树末。</p>
 <img src="/2019/11/21/彻底理解红黑树/rb11.png">
-<h5 id="红黑树的删除场景"><a href="#红黑树的删除场景" class="headerlink" title="红黑树的删除场景"></a>红黑树的删除场景</h5><h6 id="替换节点是红色节点"><a href="#替换节点是红色节点" class="headerlink" title="替换节点是红色节点"></a>替换节点是红色节点</h6><p>红色节点可以直接删除，不会影响树的平衡。</p>
-<h6 id="替换节点是黑色节点"><a href="#替换节点是黑色节点" class="headerlink" title="替换节点是黑色节点"></a>替换节点是黑色节点</h6><p>黑色节点删除会影响平衡，需要做自平衡处理，这分为几种情况</p>
+<h5 id="红黑树的删除场景"><a href="#红黑树的删除场景" class="headerlink" title="红黑树的删除场景"></a>红黑树的删除场景</h5><ul>
+<li>替换节点是红色节点 红色节点可以直接删除，不会影响树的平衡。</li>
+<li><p>替换节点是黑色节点 黑色节点删除会影响平衡，需要做自平衡处理，这分为几种情况</p>
 <ol>
 <li><p>替换节点是其父节点的左子节点</p>
 <ol>
@@ -259,15 +260,13 @@
 <li><p>替换节点的兄弟节点的右子节点是黑色节点，左子节点为红色节点。处理方法：将S设置为红色，将SL设置为黑色，对S进行右旋，得到上一种场景，按上一种场景处理。</p>
 <img src="/2019/11/21/彻底理解红黑树/rb14.png">
 </li>
-<li><p>替换节点的兄弟节点的子节点都是黑色节点。处理方法：将S设置为红色，将P作为新的替换节点继续删除操作。(这里需要注意，跳出递归的条件是新的替换节点为红色，停止操作，进行删除处理)</p>
+<li><p>替换节点的兄弟节点的子节点都是黑色节点。处理方法：将S设置为红色，将P作为新的替换节点继续删除操作。<strong>这里需要注意，跳出递归的条件是新的替换节点为红色，停止操作，进行删除处理</strong></p>
 <img src="/2019/11/21/彻底理解红黑树/rb15.png">
 </li>
 </ol>
 </li>
 </ol>
 </li>
-</ol>
-<ol start="2">
 <li><p>替换节点是其父节点的右子节点</p>
 <ol>
 <li><p>替换节点的兄弟节点是红色节点。处理方法：将S设为黑色，将P设为红色，对P进行右旋，得到下面的场景2.3，按下面的场景2.3处理</p>
@@ -289,6 +288,8 @@
 </ol>
 </li>
 </ol>
+</li>
+</ul>
 <p>下面是删除的自平衡过程示意</p>
 <img src="/2019/11/21/彻底理解红黑树/rbdelete.png">
 
@@ -571,15 +572,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">服务器端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">加密解密</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">疯狂Java：突破程序员基本功的16课</a>
+                <a href="javascript:void(0)" class="js-tag color5">服务器端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,11 +584,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">疯狂Java：突破程序员基本功的16课</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -607,19 +608,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
