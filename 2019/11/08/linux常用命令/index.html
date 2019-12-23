@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="ace的个人小站">
 <meta property="og:description" content="总结一下常用到的Linux命令">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-08T09:41:23.698Z">
+<meta property="og:updated_time" content="2019-12-13T01:45:18.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用命令">
 <meta name="twitter:description" content="总结一下常用到的Linux命令">
@@ -164,18 +164,51 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>总结一下常用到的Linux命令<br><a id="more"></a></p>
-<h6 id="linux-查看发行版本命令"><a href="#linux-查看发行版本命令" class="headerlink" title="linux 查看发行版本命令"></a>linux 查看发行版本命令</h6><ul>
-<li>cat /etc/os-release</li>
-<li>lsb_release -a</li>
+<ul>
+<li><p>linux 查看发行版本命令</p>
+<ul>
+<li><code>cat /etc/os-release</code></li>
+<li><code>lsb_release -a</code></li>
 </ul>
-<p>查看端口占用命令<code>lsof -i:8000</code></p>
-<p>在linux中快速清空文件内容的命名<code>&gt; filename</code></p>
-<p>cat命令可查看文件内容</p>
-<p>&nbsp;linux 的cp命令若是提示略过目录，在cp命令后加-r,likes<code>cp -r tomcat-1/* tomcat-2</code></p>
-<p>linux删除目录 <code>rm -rf</code> 慎重使用，会删除当前目录</p>
-<p>linux 查看文件命令<br><code>tail -n 200 $fileName</code></p>
-<p>查看端口占用的命令<br><code>netstat -tunlp | grep 端口号</code></p>
-<p>find 命令<br><code>find / -name 文件名</code></p>
+</li>
+<li><p>查看端口占用命令</p>
+<ul>
+<li><code>lsof -i:8000</code></li>
+<li><code>netstat -tunlp | grep 端口号</code></li>
+</ul>
+</li>
+<li><p>在linux中快速清空文件内容的命名</p>
+<ul>
+<li><code>&gt; filename</code></li>
+</ul>
+</li>
+<li><p>查看文件内容</p>
+<ul>
+<li>cat</li>
+<li>more</li>
+<li>tail <code>tail -n 200 $fileName</code></li>
+</ul>
+</li>
+<li><p>linux 的cp命令若是提示略过目录，在cp命令后加-r,likes<code>cp -r tomcat-1/* tomcat-2</code></p>
+</li>
+<li><p>linux删除目录 </p>
+<ul>
+<li><code>rm -rf</code> 慎重使用，会删除当前目录</li>
+</ul>
+</li>
+<li><p>查找文件</p>
+<ul>
+<li><code>find / -name 文件名</code></li>
+</ul>
+</li>
+<li><p>查询进程</p>
+<ul>
+<li><code>ps -ef | grep</code></li>
+</ul>
+</li>
+<li><p>杀死进程<br>  <code>kill -9 进程ID</code></p>
+</li>
+</ul>
 
       
 
@@ -471,10 +504,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">并发设计</a>
               </li>
              
@@ -483,7 +512,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">html css</a>
+                <a href="javascript:void(0)" class="js-tag color5">服务器端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,7 +520,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">html css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,6 +533,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vue css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,10 +557,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">服务器端</a>
               </li>
              
               <li class="article-tag-list-item">

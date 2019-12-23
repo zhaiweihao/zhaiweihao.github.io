@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>哲学家进餐问题 | ace的个人小站</title>
+  <title>记录一次阿里云服务器被黑事件 | ace的个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="算法相关">
+  <meta name="description" content="从昨天开始，陆续收到了阿里云的报警邮件和短信，说是访问恶意下载源和linux计划任务执行异常指令。由于服务器上并没什么很重要的东西，还有一些其他原因，一直拖到了今天才处理。中午发现ssh都连不上了，这才意识到问题的严重。在这里记录一下这次问题解决的流程还有需要注意的问题。">
+<meta name="keywords" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="哲学家进餐问题">
-<meta property="og:url" content="http://yoursite.com/2019/03/16/哲学家进餐问题/index.html">
+<meta property="og:title" content="记录一次阿里云服务器被黑事件">
+<meta property="og:url" content="http://yoursite.com/2019/12/23/记录一次阿里云服务器被黑事件/index.html">
 <meta property="og:site_name" content="ace的个人小站">
+<meta property="og:description" content="从昨天开始，陆续收到了阿里云的报警邮件和短信，说是访问恶意下载源和linux计划任务执行异常指令。由于服务器上并没什么很重要的东西，还有一些其他原因，一直拖到了今天才处理。中午发现ssh都连不上了，这才意识到问题的严重。在这里记录一下这次问题解决的流程还有需要注意的问题。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/03/16/哲学家进餐问题/1.jpg">
-<meta property="og:updated_time" content="2019-11-08T09:51:11.266Z">
+<meta property="og:image" content="http://yoursite.com/2019/12/23/记录一次阿里云服务器被黑事件/rouji1.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/23/记录一次阿里云服务器被黑事件/rouji2.png">
+<meta property="og:updated_time" content="2019-12-23T09:56:09.012Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="哲学家进餐问题">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/16/哲学家进餐问题/1.jpg">
+<meta name="twitter:title" content="记录一次阿里云服务器被黑事件">
+<meta name="twitter:description" content="从昨天开始，陆续收到了阿里云的报警邮件和短信，说是访问恶意下载源和linux计划任务执行异常指令。由于服务器上并没什么很重要的东西，还有一些其他原因，一直拖到了今天才处理。中午发现ssh都连不上了，这才意识到问题的严重。在这里记录一下这次问题解决的流程还有需要注意的问题。">
+<meta name="twitter:image" content="http://yoursite.com/2019/12/23/记录一次阿里云服务器被黑事件/rouji1.png">
   
     <link rel="alternative" href="/atom.xml" title="ace的个人小站" type="application/atom+xml">
   
@@ -142,36 +146,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-哲学家进餐问题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-记录一次阿里云服务器被黑事件" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      哲学家进餐问题
+      记录一次阿里云服务器被黑事件
     </h1>
   
 
         
-        <a href="/2019/03/16/哲学家进餐问题/" class="archive-article-date">
-  	<time datetime="2019-03-16T04:23:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
+        <a href="/2019/12/23/记录一次阿里云服务器被黑事件/" class="archive-article-date">
+  	<time datetime="2019-12-23T09:54:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <img src="/2019/03/16/哲学家进餐问题/1.jpg" title="哲学家餐桌">
-<a id="more"></a>
-<p>下面是摘自百度对哲学家进餐问题的描述</p>
-<blockquote>
-<p>哲学家就餐问题可以这样表述，假设有五位哲学家围坐在一张圆形餐桌旁，做以下两件事情之一：吃饭，或者思考。吃东西的时候，他们就停止思考，思考的时候也停止吃东西。餐桌中间有一大碗意大利面，每两个哲学家之间有一只餐叉。因为用一只餐叉很难吃到意大利面，所以假设哲学家必须用两只餐叉吃东西。他们只能使用自己左右手边的那两只餐叉。哲学家就餐问题有时也用米饭和筷子而不是意大利面和餐叉来描述，因为很明显，吃米饭必须用两根筷子。</p>
+        <blockquote>
+<p>从昨天开始，陆续收到了阿里云的报警邮件和短信，说是访问恶意下载源和linux计划任务执行异常指令。由于服务器上并没什么很重要的东西，还有一些其他原因，一直拖到了今天才处理。中午发现ssh都连不上了，这才意识到问题的严重。在这里记录一下这次问题解决的流程还有需要注意的问题。</p>
 </blockquote>
-<p>由于哲学家很高冷，他们之间并不交谈，因此可能出现一种情况：所有的哲学家都拿起了自己左手的筷子，然后准备拿自己右手的筷子。这时候就造成了死锁，因为每个人都在等待其他人释放资源。</p>
-<p>下面是一种解决办法，规定每个哲学家只能同时拿起左手和右手的筷子，若有一个不能拿起就继续等待。使用完成后同时放下两手的筷子，这样就能消除死锁的情况。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Chopsticks</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span>[] use = &#123;<span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">takeUp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String threadName = Thread.currentThread().getName();</span><br><span class="line">        <span class="keyword">int</span> i = Integer.valueOf(threadName);</span><br><span class="line">        <span class="keyword">while</span> (use[i] || use[(i + <span class="number">1</span>) % <span class="number">5</span>]) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                wait();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        use[i] = <span class="keyword">true</span>;</span><br><span class="line">        use[(i + <span class="number">1</span>) % <span class="number">5</span>] = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">putDown</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String threadName = Thread.currentThread().getName();</span><br><span class="line">        <span class="keyword">int</span> i = Integer.valueOf(threadName);</span><br><span class="line">        use[i] = <span class="keyword">false</span>;</span><br><span class="line">        use[(i + <span class="number">1</span>) % <span class="number">5</span>] = <span class="keyword">false</span>;</span><br><span class="line">        notifyAll();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Philosopher</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Chopsticks chopsticks;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Philosopher</span><span class="params">(String name, Chopsticks chopsticks)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(name);</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.chopsticks = chopsticks;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            chopsticks.takeUp();</span><br><span class="line">            eating();</span><br><span class="line">            chopsticks.putDown();</span><br><span class="line">            thinking();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">eating</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(name + <span class="string">":我在进餐"</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">thinking</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(name + <span class="string">":我在思考"</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Chopsticks chopsticks = <span class="keyword">new</span> Chopsticks();</span><br><span class="line">        <span class="keyword">new</span> Philosopher(<span class="string">"0"</span>, chopsticks).start();</span><br><span class="line">        <span class="keyword">new</span> Philosopher(<span class="string">"1"</span>, chopsticks).start();</span><br><span class="line">        <span class="keyword">new</span> Philosopher(<span class="string">"2"</span>, chopsticks).start();</span><br><span class="line">        <span class="keyword">new</span> Philosopher(<span class="string">"3"</span>, chopsticks).start();</span><br><span class="line">        <span class="keyword">new</span> Philosopher(<span class="string">"4"</span>, chopsticks).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>因为ssh连接不上服务器，我只好在阿里云控制台重启了服务器。重启完成后勉强能进入服务器了，进去之后发现很卡，第一反应是看看进程。使用<code>ps -ef</code> 命令查看后发现很多奇怪的下载进程。对比着阿里云控制台的报警信息，如下所示</p>
+<img src="/2019/12/23/记录一次阿里云服务器被黑事件/rouji1.png">
+<p>上图显示的url链接为<code>http://pm.cpuminerpool.com/pm.sh</code>。对比着服务器的进程发现，这个链接就是服务器那些下载进程的链接。我首先想到的是直接kill掉这些进程，我尝试了这个命令<code>ps -ef|grep cpuminerpool|grep -v grep|cut -c 9-15|xargs kill -9</code>，来批量kill这些下载进程。</p>
+<p>执行完进程我以为万事大吉了，结果发现完全没作用，查看进程还是有很多下载进程。我回忆起报警信息，有提到linux计划任务的异常。就是它了。</p>
+<p>先使用<code>tail -f /var/*log*/cron</code>查看一下计划任务的信息，发现的确有几个任务在执行，正是那些<code>curl xxx.sh</code>的信息。然后使用<code>crontab -l</code>编辑定时任务，将下载脚本的定时任务全部删除，保存。再查看进程就发现进程数已经恢复正常了。</p>
+<p>解决过程中看到有人说这个是redis没有加auth导致的，我想起了自己上周在搞redis集群，一阵不祥的预感。。。打开阿里云控制台的仪表盘，查看最近七天的进程数情况。如下所示</p>
+<img src="/2019/12/23/记录一次阿里云服务器被黑事件/rouji2.png">
+<p>进程数飙升的时间正好是redis搭建完成的第二天。。。既然如此那就先关端口吧，进入实例安全组配置，将redis集群的端口暂时全部停掉。暂时安全了，暂时。</p>
+<p>具体黑客是如何运用redis漏洞进行攻击的，可以查看文末的参考文章，看来有很多组织在用蜜罐专门捕获这些盗用别人机器挖矿的黑客。</p>
+<p>经过这次事件自己才深刻发现，暴露在外网的服务器一定要注意安全，端口开放一定要慎重，最好加白名单。虽然我的机器只是一只1核2G内存2Mbps的小鸡仔，但是网络对面的人是不会同情的。。所以还是要进行好自我保护哦。</p>
+<p>参考文章</p>
+<ul>
+<li><a href="https://learnku.com/articles/35888" target="_blank" rel="noopener">解决：阿里云提示服务器访问恶意下载源
+</a></li>
+<li><a href="https://www.freebuf.com/column/211777.html" target="_blank" rel="noopener">一个有趣的利用redis未授权访问漏洞进行挖矿的分析及防范</a></li>
+<li><a href="http://hbu.hetianlab.com/html/news/news-2019090501.html" target="_blank" rel="noopener">利用Redis未授权访问漏洞进行门罗币（XMR）挖矿事件分析</a></li>
+</ul>
+
       
 
       
@@ -215,7 +231,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法相关</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
@@ -271,7 +287,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/16/哲学家进餐问题/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/23/记录一次阿里云服务器被黑事件/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -285,18 +301,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/16/内蒙古之旅/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          内蒙古之旅
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/15/并发编程之CyclicBarrier/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">并发编程之CyclicBarrier</div>
+    <a href="/2019/12/11/比较经典的面试题上/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">比较经典的面试题上篇</div>
       <i class="icon-circle-right"></i>
     </a>
   
