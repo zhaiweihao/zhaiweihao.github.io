@@ -6,16 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 数据结构 | ace的个人小站</title>
+  <title>阿里云服务器被黑事件后续 | ace的个人小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="ace">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ace的个人小站">
-<meta property="og:url" content="http://yoursite.com/tags/数据结构/index.html">
+  <meta name="description" content="接上次的内容 经过上次的处理我还以为万事大吉了，后来发现自己还是太年轻。。。每天凌晨的短信和邮件还是准时到达，警报信息显示有进程和矿池通信。好吧，接着搞。">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿里云服务器被黑事件后续">
+<meta property="og:url" content="http://yoursite.com/2019/12/25/阿里云服务器被黑事件后续/index.html">
 <meta property="og:site_name" content="ace的个人小站">
+<meta property="og:description" content="接上次的内容 经过上次的处理我还以为万事大吉了，后来发现自己还是太年轻。。。每天凌晨的短信和邮件还是准时到达，警报信息显示有进程和矿池通信。好吧，接着搞。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/12/25/阿里云服务器被黑事件后续/pamdicks.png">
+<meta property="og:updated_time" content="2019-12-25T02:40:13.671Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ace的个人小站">
+<meta name="twitter:title" content="阿里云服务器被黑事件后续">
+<meta name="twitter:description" content="接上次的内容 经过上次的处理我还以为万事大吉了，后来发现自己还是太年轻。。。每天凌晨的短信和邮件还是准时到达，警报信息显示有进程和矿池通信。好吧，接着搞。">
+<meta name="twitter:image" content="http://yoursite.com/2019/12/25/阿里云服务器被黑事件后续/pamdicks.png">
   
     <link rel="alternative" href="/atom.xml" title="ace的个人小站" type="application/atom+xml">
   
@@ -139,136 +145,210 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-阿里云服务器被黑事件后续" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      阿里云服务器被黑事件后续
+    </h1>
+  
+
+        
+        <a href="/2019/12/25/阿里云服务器被黑事件后续/" class="archive-article-date">
+  	<time datetime="2019-12-25T02:33:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="/2019/12/23/记录一次阿里云服务器被黑事件/">接上次的内容</a></p>
+<p>经过上次的处理我还以为万事大吉了，后来发现自己还是太年轻。。。每天凌晨的短信和邮件还是准时到达，警报信息显示有进程和矿池通信。好吧，接着搞。</p>
+<a id="more"></a>
+<p>阿里云警报里提供了和矿池通信的进程号，矿池Ip和完整的文件名。我尝试使用<code>ps top</code>命令查但是根本不显示该该进程，按照警报提供的文件名使用find ls ll等命令也找不到文件，使用<code>netstat -an</code>也不显示警报里提供的矿池ip。</p>
+<p>我尝试将该文件名<code>/usr/bin/pamdicks</code>输入百度的查询框，并不抱希望的按下了回车键。还好度娘没有让我失望，<a href="https://www.cnblogs.com/taoyuxuan/p/11662345.html" target="_blank" rel="noopener">这篇文章</a>展现在我眼前。度娘，我中意你嘞！</p>
+<p>按照文中的步骤，先使用<code>ls -hal /usr/bin/pamdicks</code> 可以发现文件的确是存在的，先<code>rm</code>掉。</p>
+<p>接着下载安装sysdig，想了解sysdig可以查看<a href="http://www.pianshen.com/article/2833385406/" target="_blank" rel="noopener">这篇文章</a>。安装过程中可能显示ERROR，但是不用管，让他自己处理。安装完成后使用sysdig命令可能还是会显示ERROR，not load等信息，输入<code>/usr/bin/sysdig-probe-loader</code>命令加载模块，然后sysdig就能正常使用了。</p>
+<p>输入命令<code>sysdig -c topprocs_cpu</code>，回车。天啊，我可算找到你了。</p>
+<img src="/2019/12/25/阿里云服务器被黑事件后续/pamdicks.png">
+<p>这两天使用xshell时，输入命令都卡，当时我也感觉是还有病毒进程，但是根据找不到，只好归咎于阿里云做了cpu限制。。果然还是要相信直觉啊。</p>
+<p>使用<code>kill -9 pid</code>杀掉进程，瞬间就天亮了。好哒，我又可以去玩耍我的redis集群了。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>赠一杯咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/02/循环队列/" class="archive-article-date">
-  	<time datetime="2019-10-02T10:06:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/02/循环队列/">循环队列</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/25/阿里云服务器被黑事件后续/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/08/递归/" class="archive-article-date">
-  	<time datetime="2019-09-08T07:30:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/12/23/记录一次阿里云服务器被黑事件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">记录一次阿里云服务器被黑事件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/08/递归/">递归</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/08/数据结构-线性表/" class="archive-article-date">
-  	<time datetime="2019-09-08T05:09:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/08/数据结构-线性表/">数据结构-线性表</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+
+  
+  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "fpl6Epx33UkoJ2WTx68zNsI4-gzGzoHsz",
+            app_key: "6LN855pGSCGnH2IPLa8RepXE",
+            placeholder: "开始你的表演",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
 
 
           </div>
@@ -291,9 +371,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

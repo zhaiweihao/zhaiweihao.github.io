@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/12/23/记录一次阿里云服务器被黑事件/rouji1.png">
 <meta property="og:image" content="http://yoursite.com/2019/12/23/记录一次阿里云服务器被黑事件/rouji2.png">
-<meta property="og:updated_time" content="2019-12-23T09:56:09.012Z">
+<meta property="og:updated_time" content="2019-12-23T09:58:20.877Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记录一次阿里云服务器被黑事件">
 <meta name="twitter:description" content="从昨天开始，陆续收到了阿里云的报警邮件和短信，说是访问恶意下载源和linux计划任务执行异常指令。由于服务器上并没什么很重要的东西，还有一些其他原因，一直拖到了今天才处理。中午发现ssh都连不上了，这才意识到问题的严重。在这里记录一下这次问题解决的流程还有需要注意的问题。">
@@ -175,7 +175,7 @@
 <p>上图显示的url链接为<code>http://pm.cpuminerpool.com/pm.sh</code>。对比着服务器的进程发现，这个链接就是服务器那些下载进程的链接。我首先想到的是直接kill掉这些进程，我尝试了这个命令<code>ps -ef|grep cpuminerpool|grep -v grep|cut -c 9-15|xargs kill -9</code>，来批量kill这些下载进程。</p>
 <p>执行完进程我以为万事大吉了，结果发现完全没作用，查看进程还是有很多下载进程。我回忆起报警信息，有提到linux计划任务的异常。就是它了。</p>
 <p>先使用<code>tail -f /var/*log*/cron</code>查看一下计划任务的信息，发现的确有几个任务在执行，正是那些<code>curl xxx.sh</code>的信息。然后使用<code>crontab -l</code>编辑定时任务，将下载脚本的定时任务全部删除，保存。再查看进程就发现进程数已经恢复正常了。</p>
-<p>解决过程中看到有人说这个是redis没有加auth导致的，我想起了自己上周在搞redis集群，一阵不祥的预感。。。打开阿里云控制台的仪表盘，查看最近七天的进程数情况。如下所示</p>
+<p>解决过程中看到有人说这种情况是redis没有加auth导致的，我想起了自己上周在搞redis集群，一阵不祥的预感。。。打开阿里云控制台的仪表盘，查看最近七天的进程数情况。如下所示</p>
 <img src="/2019/12/23/记录一次阿里云服务器被黑事件/rouji2.png">
 <p>进程数飙升的时间正好是redis搭建完成的第二天。。。既然如此那就先关端口吧，进入实例安全组配置，将redis集群的端口暂时全部停掉。暂时安全了，暂时。</p>
 <p>具体黑客是如何运用redis漏洞进行攻击的，可以查看文末的参考文章，看来有很多组织在用蜜罐专门捕获这些盗用别人机器挖矿的黑客。</p>
@@ -300,6 +300,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/12/25/阿里云服务器被黑事件后续/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          阿里云服务器被黑事件后续
+        
+      </div>
+    </a>
   
   
     <a href="/2019/12/11/比较经典的面试题上/" id="article-nav-older" class="article-nav-link-wrap">
@@ -473,7 +482,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">并发设计</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -481,11 +490,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">服务器端</a>
+                <a href="javascript:void(0)" class="js-tag color5">并发设计</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">疯狂Java：突破程序员基本功的16课</a>
+                <a href="javascript:void(0)" class="js-tag color5">服务器端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,7 +502,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color5">疯狂Java：突破程序员基本功的16课</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,11 +510,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue css</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">vue css</a>
               </li>
              
               <li class="article-tag-list-item">
